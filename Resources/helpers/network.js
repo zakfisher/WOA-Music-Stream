@@ -1,9 +1,11 @@
 /**
  * Network Helper Class
- * ====================
- * Create and send/receive data via HTTP request
+ * ------------------------------------------
+ * Create HTTP request and send/receive data.
+ *
  * ------------------------------------------
  * by Zachary Fisher :: zfisher@zfidesign.com
+ *
  */
 
 Network = {
