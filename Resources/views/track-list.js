@@ -2,7 +2,8 @@
  * Track List View
  * ------------------------------------------
  * View Elements:
- * -
+ * - Window
+ * - Label
  *
  * ------------------------------------------
  * by Zachary Fisher :: zfisher@zfidesign.com
@@ -10,27 +11,15 @@
  */
 
 MS.Views.TrackList = function() {
+
    var me = this;
 
    /* VIEW ELEMENTS */
-
-   me.window = Titanium.UI.createWindow({
-      backgroundColor:'#fff',
-      height: '100%',
-      width: '100%'
-   });
-
-   me.label = Titanium.UI.createLabel({
-      color:'#999',
-      text:'Track List',
-      font:{fontSize:20,fontFamily:'Helvetica Neue'},
-      textAlign:'center',
-      width:'auto'
-   });
+   me.window = MS.Helpers.ViewComponents.window();
+   me.label = MS.Helpers.ViewComponents.label('Track List Screen');
 
 
    /* EVENT LISTENERS */
-
    me.label.addEventListener('click', function() {
       MS.Helpers.Transitions.openWindow(MS.Views.Home());
       MS.Views.TrackList().close();
@@ -38,7 +27,8 @@ MS.Views.TrackList = function() {
 
 
    /* ADD VIEW ELEMENTS TO WINDOW */
-   me.window.add(me.label);
+   me.elements = [me.label];
+   MS.Helpers.ViewComponents.addToWindow(me.elements, me.window);
 
    return me.window;
 };
