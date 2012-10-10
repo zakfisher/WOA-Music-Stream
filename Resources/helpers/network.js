@@ -8,7 +8,7 @@
  *
  */
 
-Network = {
+MS.Helpers.Network = {
    createRequest : function(url, callback, data) {
       var requestInitTime = new Date();
 

@@ -1,3 +1,19 @@
+// Init Music Stream Global Obj
+MS = {
+   Helpers : {},
+   Views   : {}
+};
+
+// Include Helpers
+Ti.include("helpers/all.js");
+
+// Include Views
+Ti.include("views/all.js");
+
+
+
+
+
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Titanium.UI.setBackgroundColor('#000');
 
