@@ -26,7 +26,7 @@ MS.Views.Home = function() {
 
    me.label = Titanium.UI.createLabel({
       color:'#999',
-      text:'I am Window 2',
+      text:'Home',
       font:{fontSize:20,fontFamily:'Helvetica Neue'},
       textAlign:'center',
       width:'auto'
@@ -35,7 +35,10 @@ MS.Views.Home = function() {
 
    /* EVENT LISTENERS */
 
-   me.label.addEventListener('click', function() { alert('ftw'); });
+   me.label.addEventListener('click', function() {
+      MS.Views.Home().close();
+      MS.Views.TrackList().open();
+   });
 
 
    /* ADD VIEW ELEMENTS TO WINDOW */
