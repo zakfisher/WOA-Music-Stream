@@ -11,7 +11,8 @@
 // Init Music Stream Global Obj
 MS = {
    Helpers : {},
-   Views   : {}
+   Views   : {},
+   Cache   : {}
 };
 
 // Include Helpers, View

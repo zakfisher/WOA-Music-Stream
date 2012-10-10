@@ -32,8 +32,8 @@ MS.Views.TrackList = function() {
    /* EVENT LISTENERS */
 
    me.label.addEventListener('click', function() {
+      MS.Helpers.Transitions.openWindow(MS.Views.Home());
       MS.Views.TrackList().close();
-      MS.Views.Home().open();
    });
 
 

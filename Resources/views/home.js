@@ -21,7 +21,8 @@ MS.Views.Home = function() {
    me.window = Titanium.UI.createWindow({
       backgroundColor:'#fff',
       height: '100%',
-      width: '100%'
+      width: '100%',
+      fullScreen : true
    });
 
    me.label = Titanium.UI.createLabel({
@@ -36,8 +37,8 @@ MS.Views.Home = function() {
    /* EVENT LISTENERS */
 
    me.label.addEventListener('click', function() {
+      MS.Helpers.Transitions.openWindow(MS.Views.TrackList());
       MS.Views.Home().close();
-      MS.Views.TrackList().open();
    });
 
 
