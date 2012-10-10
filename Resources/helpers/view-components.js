@@ -22,11 +22,11 @@ MS.Helpers.ViewComponents = {
          navBarHidden : true
       });
    },
-   label : function(text, top, left) {
+   label : function(text, top, left, color) {
       return Titanium.UI.createLabel({
-         color:'#999',
+         color: (typeof color == 'undefined') ? '#999' : color,
          text:text,
-         font:{fontSize:20,fontFamily:'Helvetica Neue'},
+         font:{fontSize:(Ti.Platform.osname == 'iphone') ? 20 : 30,fontFamily:'Helvetica Neue'},
          textAlign:'center',
          width:'auto',
          top: top,

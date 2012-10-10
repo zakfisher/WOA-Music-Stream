@@ -5,9 +5,6 @@
  * - Window
  * - Label
  *
- * Event Listeners:
- * -
- *
  * ------------------------------------------
  * by Zachary Fisher :: zfisher@zfidesign.com
  *
@@ -16,22 +13,17 @@
 MS.Views.Home = function() {
 
    var me = this;
-
-   /* VIEW ELEMENTS */
    me.window = MS.Helpers.ViewComponents.window();
-   me.label = MS.Helpers.ViewComponents.label('Home Screen', '10%', 'auto');
-   me.test = MS.Helpers.ViewComponents.label('Halalala', '20%', 'auto');
 
+   /* ELEMENTS */
+   me.homeLabel = MS.Helpers.ViewComponents.label('Home', '10%', '10%', 'blue');
+   me.trackListLabel = MS.Helpers.ViewComponents.label('Track List', '20%', '10%');
 
    /* EVENT LISTENERS */
-   me.label.addEventListener('click', function() {
-      MS.Helpers.Transitions.openWindow(MS.Views.TrackList());
-      MS.Views.Home().close();
-   });
+   me.trackListLabel.addEventListener('click', MS.Helpers.Navigation.showTrackListScreen);
 
-
-   /* ADD VIEW ELEMENTS TO WINDOW */
-   me.elements = [me.label, me.test];
+   /* ADD ELEMENTS TO WINDOW */
+   me.elements = [me.homeLabel, me.trackListLabel];
    MS.Helpers.ViewComponents.addToWindow(me.elements, me.window);
 
    return me.window;

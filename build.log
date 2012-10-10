@@ -9,13 +9,13 @@ Logfile initialized
 [TRACE] adb devices returned 2 devices/emulators
 [TRACE] adb devices returned 2 devices/emulators
 [DEBUG] Device connected... (waited 15 seconds)
-[DEBUG] waited 15.097018 seconds on emulator to get ready
+[DEBUG] waited 15.060003 seconds on emulator to get ready
 [INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.woa.musicstream installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/transitions.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/transitions.js
+[TRACE] COPYING MODIFIED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/view-components.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/view-components.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-hdpi/default.png

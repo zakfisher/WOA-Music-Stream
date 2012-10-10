@@ -8,8 +8,6 @@
  *
  */
 
-//MS.Helpers.Network.createRequest('http://www.zfidesign.com/test/test/abc', function(json) { console.log(json); });
-
 MS.Helpers.Network = {
    createRequest : function(url, callback, data) {
       var requestInitTime = new Date();
