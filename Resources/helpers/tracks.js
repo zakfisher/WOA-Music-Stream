@@ -44,7 +44,7 @@ MS.Helpers.Tracks = {
       for (var i = 0; i < tracks.length; i++) {
          var track = tracks[i];
          var top = ((i * 10) + 30) + '%';
-         var label = MS.Helpers.ViewComponents.label(track.title, top, '10%');
+         var label = MS.Helpers.Elements.label(track.title, top, '10%');
          label.index = i;
          for (var key in track) { label[key] = track[key]; }
          label.addEventListener('click', function() {

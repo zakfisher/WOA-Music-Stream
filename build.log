@@ -4,18 +4,33 @@ Logfile initialized
 [INFO] Building WOA-Music-Stream for Android ... one moment
 [INFO] Titanium SDK version: 2.1.3 (10/02/12 16:16 15997d0)
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 2 devices/emulators
-[TRACE] adb devices returned 2 devices/emulators
-[TRACE] adb devices returned 2 devices/emulators
-[TRACE] adb devices returned 2 devices/emulators
-[DEBUG] Device connected... (waited 15 seconds)
-[DEBUG] waited 15.060003 seconds on emulator to get ready
+[TRACE] adb devices returned 0 devices/emulators
+[DEBUG] /Applications/Titanium Studio/android_sdk/tools/emulator -avd titanium_2_WVGA854 -port 5560 -sdcard /Users/zakfisher/.titanium/titanium_2_WVGA854.sdcard -logcat *:d,*,TiAPI:V -no-boot-anim -partition-size 128
+[TRACE] adb devices returned 0 devices/emulators
+[TRACE] adb devices returned 0 devices/emulators
+[TRACE] adb devices returned 0 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 85 seconds)
+[DEBUG] waited 86.139182 seconds on emulator to get ready
 [INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.woa.musicstream installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/view-components.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/view-components.js
+[TRACE] COPYING MODIFIED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/app.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/app.js
 [INFO] Tiapp.xml unchanged, skipping class generation
 [DEBUG] Processing Android resource drawables
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-hdpi/default.png

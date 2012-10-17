@@ -13,11 +13,11 @@
 MS.Views.TrackList = function() {
 
    var me = this;
-   me.window = MS.Helpers.ViewComponents.window();
+   me.window = MS.Helpers.Elements.window();
 
    /* ELEMENTS */
-   me.trackListLabel = MS.Helpers.ViewComponents.label('Track List', '10%', '10%', 'blue');
-   me.homeLabel = MS.Helpers.ViewComponents.label('Home', '20%', '10%');
+   me.trackListLabel = MS.Helpers.Elements.label('Track List', '10%', '10%', 'blue');
+   me.homeLabel = MS.Helpers.Elements.label('Home', '20%', '10%');
 
    // Fetch Track Data & Add List Items to View
    me.tracks = MS.Helpers.Tracks.buildTrackList();
@@ -28,7 +28,7 @@ MS.Views.TrackList = function() {
    /* ADD ELEMENTS TO WINDOW */
    me.elements = [me.homeLabel, me.trackListLabel];
    for (var i = 0; i < me.tracks.length; i++) { me.elements.push(me.tracks[i]); }
-   MS.Helpers.ViewComponents.addToWindow(me.elements, me.window);
+   MS.Helpers.Elements.addToWindow(me.elements, me.window);
 
    return me.window;
 };
