@@ -23,8 +23,13 @@ MS.Helpers.Tracks = {
        *            [see refreshTrackList above]                   *
        * ********************************************************* */
 
+      var E  = MS.Helpers.Elements;
+      var N  = MS.Helpers.Navigation;
+      var C  = MS.Cache;
+      var CH = MS.Helpers.Cache;
+
       // Fetch New Data if Cache Doesn't Exist
-      if (typeof MS.Cache.TrackList == 'undefined') { refresh = true; }
+      if (typeof C.TrackList == 'undefined') { refresh = true; }
 
       // Define List Item Creation Method
       var createListItems = function(trackList) {
@@ -34,19 +39,19 @@ MS.Helpers.Tracks = {
          for (var i in trackList) {
             var track = trackList[i];
             var top = i * 40;
-            var label = MS.Helpers.Elements.label(track.title, top, '10%');
+            var label = E.label(track.title, top, '10%');
             label.index = i;
             for (var key in track) { label[key] = track[key]; }
             label.addEventListener('click', function() {
-               MS.Helpers.Cache.setCurrentTrack(MS.Cache.TrackList[this.index]);
-               MS.Helpers.Navigation.showSingleTrackScreen();
+               CH.setCurrentTrack(C.TrackList[this.index]);
+               N.showSingleTrackScreen();
             });
             trackLabels.push(label);
          }
 
          // Add Tracks to Track List Window
          listContainer.height = trackLabels.length * 40;
-         MS.Helpers.Elements.addElements(trackLabels, listContainer);
+         E.addElements(trackLabels, listContainer);
       };
 
       // Issue HTTP Request, and Fetch New Data
@@ -54,21 +59,22 @@ MS.Helpers.Tracks = {
 
          // Fetch Track Data & Cache
          var compileTrackList = function(tracks) {
-            MS.Helpers.Cache.setTrackList(tracks);
+            CH.setTrackList(tracks);
             createListItems(tracks);
          };
          MS.Helpers.Network.createRequest('http://www.worldofanarchy.com/dev/music/all_tracks', compileTrackList);
       }
 
       // Use Cached Data
-      else { createListItems(MS.Cache.TrackList); }
+      else { createListItems(C.TrackList); }
    },
    makeTrack : function(url) {
       return Titanium.Media.createAudioPlayer({url:url});
    },
    autoplayTrack : function() {
-      if (Ti.Platform.osname != 'iphone') { setTimeout(MS.Helpers.Tracks.startTrack, 100); }
-      else { MS.Helpers.Tracks.startTrack(); }
+      var T = MS.Helpers.Tracks;
+      if (Android) { setTimeout(T.startTrack, 100); }
+      else { T.startTrack(); }
    },
    startTrack : function() {
       MS.Cache.CurrentTrack.start();
