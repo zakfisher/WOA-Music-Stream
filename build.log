@@ -5,9 +5,6 @@ Logfile initialized
 [INFO] Titanium SDK version: 2.1.3 (10/02/12 16:16 15997d0)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 0 devices/emulators
-[DEBUG] /Applications/Titanium Studio/android_sdk/tools/emulator -avd titanium_2_WVGA854 -port 5560 -sdcard /Users/zakfisher/.titanium/titanium_2_WVGA854.sdcard -logcat *:d,*,TiAPI:V -no-boot-anim -partition-size 128
-[TRACE] adb devices returned 0 devices/emulators
-[TRACE] adb devices returned 0 devices/emulators
 [TRACE] adb devices returned 0 devices/emulators
 [TRACE] adb devices returned 1 devices/emulators
 [TRACE] adb devices returned 1 devices/emulators
@@ -16,36 +13,159 @@ Logfile initialized
 [TRACE] adb devices returned 1 devices/emulators
 [TRACE] adb devices returned 1 devices/emulators
 [TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[TRACE] adb devices returned 1 devices/emulators
-[DEBUG] Device connected... (waited 85 seconds)
-[DEBUG] waited 86.139182 seconds on emulator to get ready
+[DEBUG] Device connected... (waited 40 seconds)
+[DEBUG] waited 40.407587 seconds on emulator to get ready
 [INFO] Waiting for the Android Emulator to become available
 [DEBUG] com.woa.musicstream installed? True
 [INFO] Fastdev server running, deploying in Fastdev mode
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/app.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/app.js
-[INFO] Tiapp.xml unchanged, skipping class generation
+[INFO] Detected change in tiapp.xml, or assets deleted. Forcing full re-build...
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/appicon.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/appicon.png
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/default.png
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/app.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/app.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/all.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/all.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/cache.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/cache.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/elements.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/elements.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/navigation.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/navigation.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/network.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/network.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/tracks.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/tracks.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/helpers/transitions.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/helpers/transitions.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/system/config.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/system/config.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/views/all.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/views/all.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/views/home.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/views/home.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/views/single-track.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/views/single-track.js
+[TRACE] COPYING CREATED FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/views/track-list.js => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/views/track-list.js
+[TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-hdpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-ldpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-port-hdpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-port-ldpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-hdpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-land-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-ldpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-land-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-mdpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-land-mdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-hdpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-port-hdpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-ldpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[TRACE] COPYING FILE: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-mdpi/default.png => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-port-mdpi/default_d44e27d97b.png
+[DEBUG] app stylesheet => /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/ApplicationStylesheet.java
+[DEBUG] copying app icon: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/appicon.png
+[DEBUG] generating theme.xml
 [DEBUG] found drawable-long-land-hdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-hdpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-hdpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-land-hdpi/background.png
 [DEBUG] found drawable-long-land-ldpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-ldpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-land-ldpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-land-ldpi/background.png
 [DEBUG] found drawable-long-port-hdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-port-hdpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-port-hdpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-port-hdpi/background.png
 [DEBUG] found drawable-long-port-ldpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-port-ldpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-long-port-ldpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-long-port-ldpi/background.png
 [DEBUG] found drawable-notlong-land-hdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-hdpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-hdpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-land-hdpi/background.png
 [DEBUG] found drawable-notlong-land-ldpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-ldpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-ldpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-land-ldpi/background.png
 [DEBUG] found drawable-notlong-land-mdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-mdpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-land-mdpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-land-mdpi/background.png
 [DEBUG] found drawable-notlong-port-hdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-hdpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-hdpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-port-hdpi/background.png
 [DEBUG] found drawable-notlong-port-ldpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-ldpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-ldpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-port-ldpi/background.png
 [DEBUG] found drawable-notlong-port-mdpi splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-mdpi/default.png
+[DEBUG] copying /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/Resources/android/images/res-notlong-port-mdpi/default.png splash screen to /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/res/drawable-notlong-port-mdpi/background.png
+[DEBUG] found splash screen at /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/assets/Resources/default.png
+[TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/ApplicationStylesheet.java to javac build list
+[DEBUG] adding /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/R.java to javac build list
+[DEBUG] adding /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/WoaMusicStreamActivity.java to javac build list
+[DEBUG] adding /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/WoaMusicStreamAppInfo.java to javac build list
+[DEBUG] adding /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/WoaMusicStreamApplication.java to javac build list
+[DEBUG] Building Java Sources: "/Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/ApplicationStylesheet.java" "/Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/R.java" "/Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/WoaMusicStreamActivity.java" "/Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/WoaMusicStreamAppInfo.java" "/Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/gen/com/woa/musicstream/WoaMusicStreamApplication.java"
 [INFO] Waiting for SDCard to become available..
-[INFO] Re-launching application ... WOA-Music-Stream
+[INFO] Compiling Android Resources... This could take some time
+[DEBUG] Android classes.dex built
+[DEBUG] creating unsigned apk: /Users/zakfisher/Documents/School/Emerging Technologies/WOA-Music-Stream/build/android/bin/app-unsigned.apk
+[DEBUG] from resource zip => assets/Resources/helpers/all.js
+[DEBUG] from resource zip => assets/Resources/helpers/cache.js
+[DEBUG] from resource zip => assets/Resources/helpers/elements.js
+[DEBUG] from resource zip => assets/Resources/helpers/navigation.js
+[DEBUG] from resource zip => assets/Resources/helpers/network.js
+[DEBUG] from resource zip => assets/Resources/helpers/tracks.js
+[DEBUG] from resource zip => assets/Resources/helpers/transitions.js
+[DEBUG] from resource zip => assets/Resources/system/config.js
+[DEBUG] from resource zip => assets/Resources/views/all.js
+[DEBUG] from resource zip => assets/Resources/views/home.js
+[DEBUG] from resource zip => assets/Resources/views/single-track.js
+[DEBUG] from resource zip => assets/Resources/views/track-list.js
+[DEBUG] from resource zip => assets/Resources/app.js
+[DEBUG] from resource zip => assets/Resources/appicon.png
+[DEBUG] from resource zip => assets/Resources/default.png
+[DEBUG] from resource zip => assets/Resources/ti.cloud.js
+[DEBUG] from resource zip => assets/app.json
+[DEBUG] from resource zip => assets/index.json
+[DEBUG] from resource zip => assets/tiapp.xml
+[DEBUG] from resource zip => res/drawable/appicon.png
+[DEBUG] from resource zip => res/drawable/background.png
+[DEBUG] from resource zip => res/drawable/close.png
+[DEBUG] from resource zip => res/drawable/facebook_login.png
+[DEBUG] from resource zip => res/drawable/facebook_login_down.png
+[DEBUG] from resource zip => res/drawable/facebook_login_wide.png
+[DEBUG] from resource zip => res/drawable/facebook_login_wide_down.png
+[DEBUG] from resource zip => res/drawable/facebook_logout.png
+[DEBUG] from resource zip => res/drawable/facebook_logout_down.png
+[DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
+[DEBUG] from resource zip => AndroidManifest.xml
+[DEBUG] from resource zip => resources.arsc
+[DEBUG] from resource zip => res/drawable-hdpi/close.png
+[DEBUG] from resource zip => res/drawable-ldpi/close.png
+[DEBUG] from resource zip => res/drawable-long-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-long-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-land-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-long-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-long-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-long-port-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-land-mdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-hdpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-ldpi/default_d44e27d97b.png
+[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/background.png
+[DEBUG] from resource zip => res/drawable-notlong-port-mdpi/default_d44e27d97b.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/build.properties
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/background.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/polling.js
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/polling.min.js
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/thirdparty.jar => org/apache/Commons-NOTICE.txt
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/thirdparty.jar => org/apache/HttpComponents-NOTICE.txt
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/thirdparty.jar => org/apache/mime4j-NOTICE.txt
+[DEBUG] from JAR /Users/zakfisher/Library/Application Support/Titanium/mobilesdk/osx/2.1.3.GA/android/modules/titanium-facebook.jar => ti/modules/titanium/facebook/LICENSE
+[DEBUG] installing native SDK libs
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.015254 seconds on emulator to get ready
+[INFO] Installing application on emulator
 [INFO] Launching application ... WOA-Music-Stream
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.woa.musicstream/.WoaMusicStreamActivity }
 
+[INFO] Deployed WOA-Music-Stream ... Application should be running.
 [INFO] Android Emulator has exited
