@@ -55,7 +55,7 @@ MS.Helpers.Elements = {
          color: (typeof color == 'undefined') ? '#999' : color,
          text:text,
          font:{
-            fontSize: (Ti.Platform.osname == 'iphone') ? 20 : 30,
+            fontSize: Android ? 30 : 20,
             fontFamily: 'Helvetica Neue',
             fontWeight: (typeof bold != 'undefined') ? 'bold' : 'normal'
          },
@@ -67,13 +67,12 @@ MS.Helpers.Elements = {
    },
    Home : {
       button : function(title, top, inverse) {
+
          // Define Up/Down States
          var upImg = (typeof inverse != 'undefined') ? 'button-down.png' : 'button-up.png';
          var upColor = (typeof inverse != 'undefined') ? 'black' : '#eeeeee';
          var downImg = (typeof inverse == 'undefined') ? 'button-down.png' : 'button-up.png';
          var downColor = (typeof inverse == 'undefined') ? 'black' : '#eeeeee';
-
-         alert(upImg);
 
          // Init Button View
          var view = MS.Helpers.Elements.view(upImg, 273, 54, top);
