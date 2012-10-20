@@ -66,6 +66,10 @@ MS.Helpers.Tracks = {
    makeTrack : function(url) {
       return Titanium.Media.createAudioPlayer({url:url});
    },
+   autoplayTrack : function() {
+      if (Ti.Platform.osname != 'iphone') { setTimeout(MS.Helpers.Tracks.startTrack, 100); }
+      else { MS.Helpers.Tracks.startTrack(); }
+   },
    startTrack : function() {
       MS.Cache.CurrentTrack.start();
    },

@@ -35,7 +35,7 @@ MS.Views.SingleTrack = function() {
    MS.Helpers.Elements.addElements(me.elements, me.window);
 
    /* AUTOPLAY TRACK */
-   MS.Helpers.Tracks.startTrack();
+   MS.Helpers.Tracks.autoplayTrack();
 
    return me.window;
 };
