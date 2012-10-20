@@ -19,17 +19,19 @@ MS.Helpers.Elements = {
          backgroundColor:'#fff',
          height: '100%',
          width: '100%',
-         navBarHidden : true
+         navBarHidden : true,
+         fullscreen : true
       });
    },
    view : function(bgImg, width, height, top, left) {
-      return Ti.UI.createView({
-         backgroundImage : bgImg,
+      var view = Ti.UI.createView({
+         backgroundImage : '/images/' + bgImg,
          width: width,
          height: height,
-         top: top,
-         left: left
+         top: top
       });
+      if (typeof left != 'undefined') { view.left = left; }
+      return view;
    },
    scrollView : function(top) {
       return Ti.UI.createScrollView({
@@ -42,8 +44,14 @@ MS.Helpers.Elements = {
          width: '100%'
       });
    },
-   label : function(text, top, left, color) {
-      return Titanium.UI.createLabel({
+   image : function(img, top) {
+      return Ti.UI.createImageView({
+         image:'/images/' + img,
+         top: top
+      });
+   },
+   label : function(text, top, left, color, fontWeight) {
+      var label = Titanium.UI.createLabel({
          color: (typeof color == 'undefined') ? '#999' : color,
          text:text,
          font:{
@@ -55,5 +63,30 @@ MS.Helpers.Elements = {
          top: top,
          left: left
       });
+      if (typeof fontWeight != 'undefined') { label.font.fontWeight = fontWeight; }
+      return label;
+   },
+   Home : {
+      button : function(title, top) {
+         var E = MS.Helpers.Elements;
+
+         // Init Button View
+         var view = E.view('button-up.png', 273, 54, top);
+         var label = E.label(title, '25%', '10%', 'white', 'bold');
+         view.add(label);
+
+         // Add Touch Events
+         view.addEventListener('touchstart', function() {
+            view.backgroundImage = '/images/button-down.png';
+            label.color = 'black';
+         });
+
+         view.addEventListener('touchend', function() {
+            view.backgroundImage = '/images/button-up.png';
+            label.color = 'white';
+         });
+
+         return view;
+      }
    }
 };

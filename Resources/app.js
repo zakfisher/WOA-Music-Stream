@@ -12,4 +12,4 @@
 Ti.include("system/config.js");
 
 // Instantiate Home View
-MS.Helpers.Transitions.openWindow(MS.Views.Home());
+MS.Helpers.Navigation.startApp();

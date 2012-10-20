@@ -16,14 +16,17 @@ MS.Views.Home = function() {
    me.window = MS.Helpers.Elements.window();
 
    /* ELEMENTS */
-   me.homeLabel = MS.Helpers.Elements.label('Home', '10%', '10%', 'blue');
-   me.trackListLabel = MS.Helpers.Elements.label('Track List', '20%', '10%');
+   var E = MS.Helpers.Elements;
+   me.msLogo = E.image('music-stream-logo.png', '7%');
+   me.tracklistButton = E.Home.button('Give Me Music!', '40%');
+   me.aboutButton = E.Home.button('About', '55%');
+   me.woaLogo = E.image('logo.png', '65%');
 
    /* EVENT LISTENERS */
-   me.trackListLabel.addEventListener('click', MS.Helpers.Navigation.showTrackListScreen);
+   me.tracklistButton.addEventListener('click', MS.Helpers.Navigation.showTrackListScreen);
 
    /* ADD ELEMENTS TO WINDOW */
-   me.elements = [me.homeLabel, me.trackListLabel];
+   me.elements = [me.msLogo, me.tracklistButton, me.aboutButton, me.woaLogo];
    MS.Helpers.Elements.addElements(me.elements, me.window);
 
    return me.window;

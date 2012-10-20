@@ -15,7 +15,7 @@
     </deployment-targets>
     <sdk-version>2.1.3.GA</sdk-version>
     <id>com.woa.musicstream</id>
-    <name>WOA-Music-Stream</name>
+    <name>Music Stream</name>
     <version>1.0</version>
     <publisher>World of Anarchy</publisher>
     <url>http://www.worldofanarchy.com</url>
@@ -25,9 +25,9 @@
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
-    <statusbar-hidden>false</statusbar-hidden>
-    <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
+    <statusbar-hidden>true</statusbar-hidden>
+    <fullscreen>true</fullscreen>
+    <navbar-hidden>true</navbar-hidden>
     <analytics>true</analytics>
     <guid>b8c006ac-c68b-4843-8ef9-e7b4f1e69806</guid>
     <property name="ti.ui.defaultunit">system</property>
