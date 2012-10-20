@@ -32,7 +32,10 @@ MS.Views.SingleTrack = function() {
 
    /* ADD ELEMENTS TO WINDOW */
    me.elements = [me.homeLabel, me.trackListLabel, me.singleTrackLabel, me.artistLabel, me.mixLabel, me.playTrackLabel, me.pauseTrackLabel];
-   MS.Helpers.Elements.addToWindow(me.elements, me.window);
+   MS.Helpers.Elements.addElements(me.elements, me.window);
+
+   /* AUTOPLAY TRACK */
+   MS.Helpers.Tracks.startTrack();
 
    return me.window;
 };

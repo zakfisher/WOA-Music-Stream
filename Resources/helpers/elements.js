@@ -9,7 +9,7 @@
  */
 
 MS.Helpers.Elements = {
-   addToWindow : function(elemArray, window) {
+   addElements : function(elemArray, window) {
       for (var i = 0; i < elemArray.length; i++) {
          window.add(elemArray[i]);
       }
@@ -29,6 +29,17 @@ MS.Helpers.Elements = {
          height: height,
          top: top,
          left: left
+      });
+   },
+   scrollView : function(top) {
+      return Ti.UI.createScrollView({
+         contentWidth: 'auto',
+         contentHeight: 'auto',
+         showVerticalScrollIndicator: true,
+         showHorizontalScrollIndicator: false,
+         height: '100%',
+         top: (typeof top == 'undefined') ? '0' : top,
+         width: '100%'
       });
    },
    label : function(text, top, left, color) {

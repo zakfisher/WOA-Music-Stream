@@ -24,7 +24,7 @@ MS.Views.Home = function() {
 
    /* ADD ELEMENTS TO WINDOW */
    me.elements = [me.homeLabel, me.trackListLabel];
-   MS.Helpers.Elements.addToWindow(me.elements, me.window);
+   MS.Helpers.Elements.addElements(me.elements, me.window);
 
    return me.window;
 };
