@@ -68,6 +68,8 @@ MS.Helpers.Elements = {
    Home : {
       button : function(title, top, inverse) {
 
+         var E = MS.Helpers.Elements;
+
          // Define Up/Down States
          var upImg = (typeof inverse != 'undefined') ? 'button-down.png' : 'button-up.png';
          var upColor = (typeof inverse != 'undefined') ? 'black' : '#eeeeee';
@@ -75,7 +77,6 @@ MS.Helpers.Elements = {
          var downColor = (typeof inverse == 'undefined') ? 'black' : '#eeeeee';
 
          // Init Button View
-         var E = MS.Helpers.Elements;
          var view = E.view(upImg, 273, 54, top);
          var label = E.label(title, '25%', '10%', upColor, true);
          view.add(label);

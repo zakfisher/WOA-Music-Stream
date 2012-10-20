@@ -10,21 +10,28 @@
 
 MS.Helpers.Cache = {
    setCurrentTrack : function(data) {
+
+      var C = MS.Cache;
+      var T = MS.Helpers.Tracks;
+
       // Remove Current Track
-      if (typeof MS.Cache.CurrentTrack != 'undefined') {
-         MS.Helpers.Tracks.stopTrack();
-         if (Ti.Platform.osname != 'iphone') { MS.Cache.CurrentTrack.release(); }
-         delete MS.Cache.CurrentTrack;
+      if (typeof C.CurrentTrack != 'undefined') {
+         T.stopTrack();
+         if (Android) { C.CurrentTrack.release(); }
+         delete C.CurrentTrack;
       }
-      if (typeof MS.Cache.CurrentTrackData != 'undefined') { delete MS.Cache.CurrentTrackData; }
+      if (typeof C.CurrentTrackData != 'undefined') { delete C.CurrentTrackData; }
 
       // Init Current Track & Stash Track Data
-      MS.Cache.CurrentTrack = MS.Helpers.Tracks.makeTrack(data.url);
-      MS.Cache.CurrentTrackData = data;
+      C.CurrentTrack = T.makeTrack(data.url);
+      C.CurrentTrackData = data;
    },
    setTrackList : function(data) {
+
+      var C = MS.Cache;
+
       // If TrackList exists, delete & re-init
-      if (typeof MS.Cache.TrackList != 'undefined') { delete MS.Cache.TrackList; }
-      MS.Cache.TrackList = data;
+      if (typeof C.TrackList != 'undefined') { delete C.TrackList; }
+      C.TrackList = data;
    }
 };
