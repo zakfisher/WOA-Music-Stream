@@ -18,8 +18,6 @@ MS = {
 // Set OS Flag
 Android = (Ti.Platform.osname != 'iphone');
 
-alert(Android);
-
 // Include Helpers, View
 Ti.include("../helpers/all.js");
 Ti.include("../views/all.js");
