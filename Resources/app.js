@@ -12,4 +12,4 @@
 Ti.include("system/config.js");
 
 // Instantiate Home View
-MS.Helpers.Navigation.startApp();
+setTimeout(MS.Helpers.Navigation.showHomeScreen, 3000);

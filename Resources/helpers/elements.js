@@ -50,40 +50,45 @@ MS.Helpers.Elements = {
          top: top
       });
    },
-   label : function(text, top, left, color, fontWeight) {
-      var label = Titanium.UI.createLabel({
+   label : function(text, top, left, color, bold) {
+      return Titanium.UI.createLabel({
          color: (typeof color == 'undefined') ? '#999' : color,
          text:text,
          font:{
-            fontSize:(Ti.Platform.osname == 'iphone') ? 20 : 30,
-            fontFamily:'Helvetica Neue'
+            fontSize: (Ti.Platform.osname == 'iphone') ? 20 : 30,
+            fontFamily: 'Helvetica Neue',
+            fontWeight: (typeof bold != 'undefined') ? 'bold' : 'normal'
          },
          textAlign:'center',
          width:'auto',
          top: top,
          left: left
       });
-      if (typeof fontWeight != 'undefined') { label.font.fontWeight = fontWeight; }
-      return label;
    },
    Home : {
-      button : function(title, top) {
-         var E = MS.Helpers.Elements;
+      button : function(title, top, inverse) {
+         // Define Up/Down States
+         var upImg = (typeof inverse != 'undefined') ? 'button-down.png' : 'button-up.png';
+         var upColor = (typeof inverse != 'undefined') ? 'black' : '#eeeeee';
+         var downImg = (typeof inverse == 'undefined') ? 'button-down.png' : 'button-up.png';
+         var downColor = (typeof inverse == 'undefined') ? 'black' : '#eeeeee';
+
+         alert(upImg);
 
          // Init Button View
-         var view = E.view('button-up.png', 273, 54, top);
-         var label = E.label(title, '25%', '10%', 'white', 'bold');
+         var view = MS.Helpers.Elements.view(upImg, 273, 54, top);
+         var label = MS.Helpers.Elements.label(title, '25%', '10%', upColor, true);
          view.add(label);
 
          // Add Touch Events
          view.addEventListener('touchstart', function() {
-            view.backgroundImage = '/images/button-down.png';
-            label.color = 'black';
+            view.backgroundImage = '/images/' + downImg;
+            label.color = downColor;
          });
 
          view.addEventListener('touchend', function() {
-            view.backgroundImage = '/images/button-up.png';
-            label.color = 'white';
+            view.backgroundImage = '/images/' + upImg;
+            label.color = upColor;
          });
 
          return view;
