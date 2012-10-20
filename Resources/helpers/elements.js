@@ -75,8 +75,9 @@ MS.Helpers.Elements = {
          var downColor = (typeof inverse == 'undefined') ? 'black' : '#eeeeee';
 
          // Init Button View
-         var view = MS.Helpers.Elements.view(upImg, 273, 54, top);
-         var label = MS.Helpers.Elements.label(title, '25%', '10%', upColor, true);
+         var E = MS.Helpers.Elements;
+         var view = E.view(upImg, 273, 54, top);
+         var label = E.label(title, '25%', '10%', upColor, true);
          view.add(label);
 
          // Add Touch Events

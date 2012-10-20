@@ -13,29 +13,33 @@
 MS.Views.SingleTrack = function() {
 
    var me = this;
+   var E = MS.Helpers.Elements;
+   var N = MS.Helpers.Navigation;
+   var T = MS.Helpers.Tracks;
+   var C = MS.Cache;
 
    /* ELEMENTS */
-   me.window = MS.Helpers.Elements.window();
-   me.homeLabel = MS.Helpers.Elements.label('Home', '20%', '10%');
-   me.trackListLabel = MS.Helpers.Elements.label('Track List', '30%', '10%');
-   me.singleTrackLabel = MS.Helpers.Elements.label('Single Track', '10%', '10%', 'blue');
-   me.artistLabel = MS.Helpers.Elements.label(MS.Cache.CurrentTrackData.artist, '70%', '10%');
-   me.mixLabel = MS.Helpers.Elements.label(MS.Cache.CurrentTrackData.title, '80%', '10%');
-   me.playTrackLabel = MS.Helpers.Elements.label('Play', '50%', '10%');
-   me.pauseTrackLabel = MS.Helpers.Elements.label('Pause', '60%', '10%');
-
-   /* EVENT LISTENERS */
-   me.homeLabel.addEventListener('click', MS.Helpers.Navigation.showHomeScreen);
-   me.trackListLabel.addEventListener('click', MS.Helpers.Navigation.showTrackListScreen);
-   me.playTrackLabel.addEventListener('click', MS.Helpers.Tracks.startTrack);
-   me.pauseTrackLabel.addEventListener('click', MS.Helpers.Tracks.pauseTrack);
+   me.window           = E.window();
+   me.homeLabel        = E.label('Home', '20%', '10%');
+   me.trackListLabel   = E.label('Track List', '30%', '10%');
+   me.singleTrackLabel = E.label('Single Track', '10%', '10%', 'blue');
+   me.artistLabel      = E.label(C.CurrentTrackData.artist, '70%', '10%');
+   me.mixLabel         = E.label(C.CurrentTrackData.title, '80%', '10%');
+   me.playTrackLabel   = E.label('Play', '50%', '10%');
+   me.pauseTrackLabel  = E.label('Pause', '60%', '10%');
 
    /* ADD ELEMENTS TO WINDOW */
    me.elements = [me.homeLabel, me.trackListLabel, me.singleTrackLabel, me.artistLabel, me.mixLabel, me.playTrackLabel, me.pauseTrackLabel];
-   MS.Helpers.Elements.addElements(me.elements, me.window);
+   E.addElements(me.elements, me.window);
+
+   /* EVENT LISTENERS */
+   me.homeLabel.addEventListener('click', N.showHomeScreen);
+   me.trackListLabel.addEventListener('click', N.showTrackListScreen);
+   me.playTrackLabel.addEventListener('click', T.startTrack);
+   me.pauseTrackLabel.addEventListener('click', T.pauseTrack);
 
    /* AUTOPLAY TRACK */
-   MS.Helpers.Tracks.autoplayTrack();
+   T.autoplayTrack();
 
    return me.window;
 };
