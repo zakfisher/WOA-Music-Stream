@@ -38,7 +38,7 @@ MS.Helpers.Elements = {
       return Ti.UI.createScrollView({
          contentWidth: 'auto',
          contentHeight: 'auto',
-         showVerticalScrollIndicator: true,
+         showVerticalScrollIndicator: false,
          showHorizontalScrollIndicator: false,
          height: height,
          top: (typeof top == 'undefined') ? '0' : top,
@@ -81,7 +81,7 @@ MS.Helpers.Elements = {
          left: left
       });
    },
-   button : function(top, labels, inverse) {
+   button : function(top, labels, inverse, events) {
 
       var E = MS.Helpers.Elements;
 
@@ -96,15 +96,17 @@ MS.Helpers.Elements = {
       E.addElements(labels, view);
 
       // Add Touch Events
-      view.addEventListener('touchstart', function() {
-         view.backgroundImage = '/images/' + downImg;
-         for (var i = 0; i < labels.length; i++) { labels[i].color = downColor; }
-      });
+      if (events) {
+         view.addEventListener('touchstart', function() {
+            view.backgroundImage = '/images/' + downImg;
+            for (var i = 0; i < labels.length; i++) { labels[i].color = downColor; }
+         });
 
-      view.addEventListener('touchend', function() {
-         view.backgroundImage = '/images/' + upImg;
-         for (var i = 0; i < labels.length; i++) { labels[i].color = upColor; }
-      });
+         view.addEventListener('touchend', function() {
+            view.backgroundImage = '/images/' + upImg;
+            for (var i = 0; i < labels.length; i++) { labels[i].color = upColor; }
+         });
+      }
 
       return view;
    }

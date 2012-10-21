@@ -39,21 +39,28 @@ MS.Helpers.Tracks = {
          var tracklistItems = [];
          for (var i in trackList) {
             var track = trackList[i];
+
+            // Select Track if Currently Playing
             var inverse = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
-            var labelColor = (typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id) ? '#eeeeee' : 'black';
+            var labelColor = inverse ? 'black' : '#eeeeee';
+
+            // Create List Item
             var labels = [
                E.label(T.ellipsis(track.title, 33), '10%', '5%', labelColor, 13, true),
                E.label(T.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
                E.label(track.duration, '60%', '5%', labelColor, 13)
             ];
-
-            var button = E.button((i * 60), labels, inverse);
+            var button = E.button((i * 60), labels, inverse, inverse);
             button.index = i;
             for (var key in track) { button[key] = track[key]; }
-            button.addEventListener('click', function() {
-               CH.setCurrentTrack(C.TrackList[this.index]);
-               N.showSingleTrackScreen();
-            });
+
+            // Add Event Listeners
+            if (inverse) {
+               button.addEventListener('click', function() {
+                  CH.setCurrentTrack(C.TrackList[this.index]);
+                  N.showSingleTrackScreen();
+               });
+            }
             tracklistItems.push(button);
          }
 
