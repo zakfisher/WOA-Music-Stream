@@ -67,7 +67,7 @@ MS.Helpers.Elements = {
       });
    },
    label : function(text, top, left, color, size, bold) {
-      return Titanium.UI.createLabel({
+      var label = Titanium.UI.createLabel({
          color: (typeof color == 'undefined') ? '#999' : color,
          text:text,
          font: {
@@ -80,15 +80,18 @@ MS.Helpers.Elements = {
          top: top,
          left: left
       });
+      label.label = true;
+      return label;
    },
    button : function(top, labels, inverse, events) {
 
       var E = MS.Helpers.Elements;
+      var C = MS.Cache;
 
       // Define Up/Down States
-      var upImg = inverse ? 'button-down.png' : 'button-up.png';
-      var upColor = inverse ? 'black' : '#eeeeee';
-      var downImg = !inverse ? 'button-down.png' : 'button-up.png';
+      var upImg     =  inverse ? 'button-down.png' : 'button-up.png';
+      var upColor   =  inverse ? 'black' : '#eeeeee';
+      var downImg   = !inverse ? 'button-down.png' : 'button-up.png';
       var downColor = !inverse ? 'black' : '#eeeeee';
 
       // Init Button View

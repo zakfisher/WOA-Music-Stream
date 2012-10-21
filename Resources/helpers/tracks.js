@@ -10,10 +10,80 @@
  */
 
 MS.Helpers.Tracks = {
-   refreshTrackList : function(listContainer) {
-      MS.Helpers.Tracks.buildTrackList(listContainer, true);
+   refreshTrackList : function() {
+      MS.Helpers.Tracks.buildTrackList(true);
    },
-   buildTrackList : function(listContainer, refresh) {
+   renderListItems : function(trackList) {
+
+      var E  = MS.Helpers.Elements;
+      var N  = MS.Helpers.Navigation;
+      var T  = MS.Helpers.Tracks;
+      var C  = MS.Cache;
+      var CH = MS.Helpers.Cache;
+      var TX = MS.Helpers.Text;
+
+      // Create Labels (with embedded track data)
+      var tracklistItems = [];
+      for (var i in trackList) {
+         var track = trackList[i];
+
+         // Select Track if Currently Playing
+         var inverse = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
+         var labelColor = inverse ? 'black' : '#eeeeee';
+
+         // Create List Item
+         var labels = [
+            E.label(TX.ellipsis(track.title, 33), '10%', '5%', labelColor, 13, true),
+            E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
+            E.label(track.duration, '60%', '5%', labelColor, 13)
+         ];
+         var button = E.button((i * 60), labels, inverse, false);
+         for (var key in track) { button[key] = track[key]; }
+
+         // Add Event Listeners
+         if (inverse) {
+            button.index = i;
+            for (var j = 0; j < labels.length; j++) { labels[j].index = button.index; }
+            button.addEventListener('click', function(e) {
+               var target = (this.label != null) ? this.getParent() : this;
+
+               var cacheAndPlay = function() {
+
+                  // Deselect All Buttons (when selecting new track)
+                  var listItems = C.listContainer.getChildren();
+                  for (var k = 0; k < listItems.length; k++) {
+                     var b = listItems[k];
+                     b.backgroundImage = '/images/button-down.png';
+                     var ls = b.getChildren();
+                     for (var l = 0; l < ls.length; l++) { ls[l].color = 'black'; }
+                  }
+
+                  // Select Current Button
+                  target.backgroundImage = '/images/button-up.png';
+                  var lbls = target.getChildren();
+                  for (var m = 0; m < lbls.length; m++) { lbls[m].color = '#eeeeee'; }
+
+                  // Cache and Play Track
+                  CH.setCurrentTrack(C.TrackList[target.index]);
+                  T.selectTrack();
+                  //N.showSingleTrackScreen();
+               };
+
+               // A Track is Currently Selected
+               if (typeof C.CurrentTrackData != 'undefined' && target.id != C.CurrentTrackData.id) { cacheAndPlay(); }
+
+               // No Tracks Selected or Playing
+               else if (typeof C.CurrentTrackData == 'undefined') { cacheAndPlay(); }
+            });
+         }
+         tracklistItems.push(button);
+      }
+
+      // Add Tracks to Track List Window
+      C.listContainer.contentHeight = tracklistItems.length * 60;
+      E.addElements(tracklistItems, C.listContainer);
+   },
+   buildTrackList : function(refresh) {
 
       /* ***********************************************************
        * If Track List is Cached, Repopulate List with Cached Data *
@@ -24,70 +94,32 @@ MS.Helpers.Tracks = {
        * ********************************************************* */
 
       var E  = MS.Helpers.Elements;
-      var N  = MS.Helpers.Navigation;
       var C  = MS.Cache;
       var CH = MS.Helpers.Cache;
-      var T  = MS.Helpers.Text;
+      var T  = MS.Helpers.Tracks;
 
       // Fetch New Data if Cache Doesn't Exist
       if (typeof C.TrackList == 'undefined') { refresh = true; }
-
-      // Define List Item Creation Method
-      var createListItems = function(trackList) {
-
-         // Create Labels (with embedded track data)
-         var tracklistItems = [];
-         for (var i in trackList) {
-            var track = trackList[i];
-
-            // Select Track if Currently Playing
-            var inverse = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
-            var labelColor = inverse ? 'black' : '#eeeeee';
-
-            // Create List Item
-            var labels = [
-               E.label(T.ellipsis(track.title, 33), '10%', '5%', labelColor, 13, true),
-               E.label(T.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
-               E.label(track.duration, '60%', '5%', labelColor, 13)
-            ];
-            var button = E.button((i * 60), labels, inverse, inverse);
-            button.index = i;
-            for (var key in track) { button[key] = track[key]; }
-
-            // Add Event Listeners
-            if (inverse) {
-               button.addEventListener('click', function() {
-                  CH.setCurrentTrack(C.TrackList[this.index]);
-                  N.showSingleTrackScreen();
-               });
-            }
-            tracklistItems.push(button);
-         }
-
-         // Add Tracks to Track List Window
-         listContainer.contentHeight = tracklistItems.length * 60;
-         E.addElements(tracklistItems, listContainer);
-      };
 
       // Issue HTTP Request, and Fetch New Data
       if (refresh) {
 
          // Add "Loading" to Window
          var loading = E.loading('Loading');
-         listContainer.add(loading);
+         C.listContainer.add(loading);
          loading.show();
 
          // Fetch Track Data & Cache
          var compileTrackList = function(tracks) {
             CH.setTrackList(tracks);
-            listContainer.remove(loading);
-            createListItems(tracks);
+            C.listContainer.remove(loading);
+            T.renderListItems(tracks);
          };
          MS.Helpers.Network.createRequest('http://www.worldofanarchy.com/dev/music/all_tracks', compileTrackList);
       }
 
       // Use Cached Data
-      else { createListItems(C.TrackList); }
+      else { T.renderListItems(C.TrackList); }
    },
    makeTrack : function(url) {
       return Titanium.Media.createAudioPlayer({url:url});
@@ -105,5 +137,18 @@ MS.Helpers.Tracks = {
    },
    pauseTrack : function() {
       MS.Cache.CurrentTrack.pause();
+   },
+   selectTrack : function() {
+
+      var T  = MS.Helpers.Tracks;
+      var C  = MS.Cache;
+      var CH = MS.Helpers.Cache;
+      var TX = MS.Helpers.Text;
+
+      // Play Current Track & Update Now Playing Labels
+      T.autoplayTrack();
+      C.npLabel.text = 'Now Playing';
+      C.npTitleLabel.text = TX.ellipsis(C.CurrentTrackData.title, 35);
+      C.npArtistLabel.text = TX.ellipsis(C.CurrentTrackData.artist, 40);
    }
 };
