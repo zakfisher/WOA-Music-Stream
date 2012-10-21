@@ -10,9 +10,6 @@
  */
 
 MS.Helpers.Tracks = {
-   refreshTrackList : function() {
-      MS.Helpers.Tracks.buildTrackList(true);
-   },
    renderListItems : function(trackList) {
 
       var E  = MS.Helpers.Elements;
@@ -22,7 +19,7 @@ MS.Helpers.Tracks = {
       var CH = MS.Helpers.Cache;
       var TX = MS.Helpers.Text;
 
-      // Create Labels (with embedded track data)
+      // Create List Items (with embedded track data)
       var tracklistItems = [];
       for (var i in trackList) {
          var track = trackList[i];
@@ -66,7 +63,7 @@ MS.Helpers.Tracks = {
                   // Cache and Play Track
                   CH.setCurrentTrack(C.TrackList[target.index]);
                   T.selectTrack();
-                  //N.showSingleTrackScreen();
+                  C.playPauseIcon.image = '/images/pause-icon.png';
                };
 
                // A Track is Currently Selected
@@ -89,8 +86,7 @@ MS.Helpers.Tracks = {
        * If Track List is Cached, Repopulate List with Cached Data *
        * Otherwise, Refresh and Repopulate List with New Data      *
        *                                                           *
-       *      Note: User Can Refresh the Track List Manually.      *
-       *            [see refreshTrackList above]                   *
+       * Note: User Can Refresh the Track List Manually.           *
        * ********************************************************* */
 
       var E  = MS.Helpers.Elements;
@@ -125,7 +121,9 @@ MS.Helpers.Tracks = {
       return Titanium.Media.createAudioPlayer({url:url});
    },
    autoplayTrack : function() {
+
       var T = MS.Helpers.Tracks;
+
       if (Android) { setTimeout(T.startTrack, 100); }
       else { T.startTrack(); }
    },
@@ -138,6 +136,35 @@ MS.Helpers.Tracks = {
    pauseTrack : function() {
       MS.Cache.CurrentTrack.pause();
    },
+   playPauseTrack : function() {
+
+      var C = MS.Cache;
+      var T = MS.Helpers.Tracks;
+
+      // A Track is Currently Selected
+      if (typeof C.CurrentTrackData != 'undefined') {
+
+         // Track is Playing
+         if (C.CurrentTrack.playing) {
+            C.playPauseIcon.image = '/images/play-icon.png';
+            T.pauseTrack();
+         }
+
+         // Track is Paused
+         else {
+            C.playPauseIcon.image = '/images/pause-icon.png';
+            T.startTrack();
+         }
+      }
+
+      // No Tracks Selected or Playing
+      else {
+
+         // Default to First Track in List
+         var tracks = C.listContainer.getChildren();
+         tracks[0].fireEvent('click');
+      }
+   },
    selectTrack : function() {
 
       var T  = MS.Helpers.Tracks;
@@ -147,8 +174,7 @@ MS.Helpers.Tracks = {
 
       // Play Current Track & Update Now Playing Labels
       T.autoplayTrack();
-      C.npLabel.text = 'Now Playing';
-      C.npTitleLabel.text = TX.ellipsis(C.CurrentTrackData.title, 35);
+      C.npTitleLabel.text = TX.ellipsis(C.CurrentTrackData.title, 23);
       C.npArtistLabel.text = TX.ellipsis(C.CurrentTrackData.artist, 40);
    }
 };

@@ -1,12 +1,9 @@
 /**
  * Home View
  * ------------------------------------------
- * View Elements:
- * - Window
- * - MS Logo
- * - Tracklist Nav Button
- * - About Nav Button
- * - WOA Logo
+ * Features:
+ * - Navigate to Track List View
+ * - Navigate to About View
  *
  * ------------------------------------------
  * by Zachary Fisher :: zfisher@zfidesign.com

@@ -24,7 +24,7 @@ MS.Helpers.Elements = {
          fullscreen : true
       });
    },
-   view : function(bgImg, width, height, top, left) {
+   view : function(bgImg, width, height, top, left, zIndex) {
       var view = Ti.UI.createView({
          backgroundImage : '/images/' + bgImg,
          width: width,
@@ -32,6 +32,7 @@ MS.Helpers.Elements = {
          top: top
       });
       if (typeof left != 'undefined') { view.left = left; }
+      if (typeof zIndex != 'undefined') { view.zIndex = zIndex; }
       return view;
    },
    scrollView : function(top, height) {
@@ -81,12 +82,12 @@ MS.Helpers.Elements = {
          left: left
       });
       label.label = true;
+      label.zIndex = 3;
       return label;
    },
    button : function(top, labels, inverse, events) {
 
       var E = MS.Helpers.Elements;
-      var C = MS.Cache;
 
       // Define Up/Down States
       var upImg     =  inverse ? 'button-down.png' : 'button-up.png';
@@ -112,5 +113,16 @@ MS.Helpers.Elements = {
       }
 
       return view;
+   },
+   icon : function(img, position) {
+
+      var E = MS.Helpers.Elements;
+
+      var icon = E.image(img, position.top);
+      icon.zIndex = 3;
+      if (typeof position.left != 'undefined') { icon.left = position.left; }
+      if (typeof position.right != 'undefined') { icon.right = position.right; }
+
+      return icon;
    }
 };
