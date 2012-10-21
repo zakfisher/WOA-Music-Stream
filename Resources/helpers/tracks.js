@@ -27,6 +27,7 @@ MS.Helpers.Tracks = {
       var N  = MS.Helpers.Navigation;
       var C  = MS.Cache;
       var CH = MS.Helpers.Cache;
+      var T  = MS.Helpers.Text;
 
       // Fetch New Data if Cache Doesn't Exist
       if (typeof C.TrackList == 'undefined') { refresh = true; }
@@ -35,31 +36,44 @@ MS.Helpers.Tracks = {
       var createListItems = function(trackList) {
 
          // Create Labels (with embedded track data)
-         var trackLabels = [];
+         var tracklistItems = [];
          for (var i in trackList) {
             var track = trackList[i];
-            var top = i * 40;
-            var label = E.label(track.title, top, '10%');
-            label.index = i;
-            for (var key in track) { label[key] = track[key]; }
-            label.addEventListener('click', function() {
+            var inverse = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
+            var labelColor = (typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id) ? '#eeeeee' : 'black';
+            var labels = [
+               E.label(T.ellipsis(track.title, 33), '10%', '5%', labelColor, 13, true),
+               E.label(T.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
+               E.label(track.duration, '60%', '5%', labelColor, 13)
+            ];
+
+            var button = E.button((i * 60), labels, inverse);
+            button.index = i;
+            for (var key in track) { button[key] = track[key]; }
+            button.addEventListener('click', function() {
                CH.setCurrentTrack(C.TrackList[this.index]);
                N.showSingleTrackScreen();
             });
-            trackLabels.push(label);
+            tracklistItems.push(button);
          }
 
          // Add Tracks to Track List Window
-         listContainer.height = trackLabels.length * 40;
-         E.addElements(trackLabels, listContainer);
+         listContainer.contentHeight = tracklistItems.length * 60;
+         E.addElements(tracklistItems, listContainer);
       };
 
       // Issue HTTP Request, and Fetch New Data
       if (refresh) {
 
+         // Add "Loading" to Window
+         var loading = E.loading('Loading');
+         listContainer.add(loading);
+         loading.show();
+
          // Fetch Track Data & Cache
          var compileTrackList = function(tracks) {
             CH.setTrackList(tracks);
+            listContainer.remove(loading);
             createListItems(tracks);
          };
          MS.Helpers.Network.createRequest('http://www.worldofanarchy.com/dev/music/all_tracks', compileTrackList);

@@ -17,7 +17,7 @@ MS.Helpers.Network = {
 
          // Success
          onload: function() {
-            Ti.API.info("Status: " + this.status);
+            //Ti.API.info("Status: " + this.status);
             var json = JSON.parse(this.responseText);
             callback.call(this, json);
 
