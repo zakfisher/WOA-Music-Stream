@@ -9,16 +9,19 @@
  */
 
 MS.Helpers.Navigation = {
+   showHomeScreenFirstTime : function() {
+      MS.Helpers.Transitions.openWindowRight(MS.Views.Home());
+   },
    showHomeScreen : function() {
-      MS.Helpers.Transitions.openWindow(MS.Views.Home());
+      MS.Helpers.Transitions.openWindowLeft(MS.Views.Home());
    },
    showAboutScreen : function() {
-      MS.Helpers.Transitions.openWindow(MS.Views.About());
+      MS.Helpers.Transitions.openWindowRight(MS.Views.About());
    },
    showTrackListScreen : function() {
-      MS.Helpers.Transitions.openWindow(MS.Views.TrackList());
+      MS.Helpers.Transitions.openWindowRight(MS.Views.TrackList());
    },
    showSingleTrackScreen : function() {
-      MS.Helpers.Transitions.openWindow(MS.Views.SingleTrack());
+      MS.Helpers.Transitions.openWindowRight(MS.Views.SingleTrack());
    }
 };

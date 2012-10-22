@@ -10,14 +10,18 @@
 
 // Init Music Stream Global Obj
 MS = {
-   Helpers : {},
-   Views   : {},
-   Cache   : {}
+   Cache    : {},
+   Helpers  : {},
+   Elements : {},
+   Views    : {}
 };
 
-// Set OS Flag
-Android = (Ti.Platform.osname != 'iphone');
-
-// Include Helpers, View
+// Include Helpers & Views
 Ti.include("../helpers/all.js");
 Ti.include("../views/all.js");
+
+// Set View Elements
+Android = (Ti.Platform.osname != 'iphone');
+Ti.include("android-elements.js");
+Ti.include("iphone-elements.js");
+MS.Helpers.Elements.setElements();

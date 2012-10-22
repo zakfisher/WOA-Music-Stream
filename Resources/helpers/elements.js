@@ -9,6 +9,9 @@
  */
 
 MS.Helpers.Elements = {
+   setElements : function() {
+      MS.Elements = Android ? MS.AndroidElements() : MS.iPhoneElements();
+   },
    addElements : function(elemArray, window) {
       for (var i = 0; i < elemArray.length; i++) {
          window.add(elemArray[i]);
