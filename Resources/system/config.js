@@ -22,6 +22,5 @@ Ti.include("../views/all.js");
 
 // Set View Elements
 Android = (Ti.Platform.osname != 'iphone');
-Ti.include("android-elements.js");
-Ti.include("iphone-elements.js");
+Ti.include(Android ? "../elements/android-elements.js" : "../elements/iphone-elements.js");
 MS.Helpers.Elements.setElements();
