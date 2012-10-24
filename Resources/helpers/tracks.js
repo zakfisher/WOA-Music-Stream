@@ -169,7 +169,6 @@ MS.Helpers.Tracks = {
 
       var T  = MS.Helpers.Tracks;
       var C  = MS.Cache;
-      var CH = MS.Helpers.Cache;
       var TX = MS.Helpers.Text;
 
       // Play Current Track & Update Now Playing Labels

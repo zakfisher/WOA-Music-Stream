@@ -12,9 +12,9 @@ MS.Helpers.Elements = {
    setElements : function() {
       Ti.include("/elements/" + (Android ? "android" : "iphone") + ".js");
    },
-   addElements : function(elemArray, window) {
+   addElements : function(elemArray, parentObj) {
       for (var i = 0; i < elemArray.length; i++) {
-         window.add(elemArray[i]);
+         parentObj.add(elemArray[i]);
       }
    },
    window : function() {
