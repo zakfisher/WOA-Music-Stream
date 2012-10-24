@@ -26,7 +26,6 @@ MS.Views.TrackList = function() {
    C.npArtistLabel  = E.npArtistLabel;
    C.playPauseIcon  = E.playPauseIcon;
    C.listContainer  = E.listContainer;
-   me.window = EH.window();
    me.elements = [
       E.npBG,
       E.homeIcon,
@@ -44,6 +43,7 @@ MS.Views.TrackList = function() {
    T.buildTrackList(null);
 
    /* ADD ELEMENTS TO WINDOW */
+   me.window = EH.window();
    EH.addElements(me.elements, me.window);
 
    /* EVENT LISTENERS */

@@ -18,7 +18,6 @@ MS.Views.Home = function() {
    var E  = MS.Elements.Home;
 
    /* ELEMENTS */
-   me.window = EH.window();
    me.elements = [
       E.msLogo,
       E.tracklistButton,
@@ -27,6 +26,7 @@ MS.Views.Home = function() {
    ];
 
    /* ADD ELEMENTS TO WINDOW */
+   me.window = EH.window();
    EH.addElements(me.elements, me.window);
 
    /* EVENT LISTENERS */
