@@ -17,10 +17,11 @@ MS = {
 };
 
 // Include Helpers & Views
-Ti.include("../helpers/all.js");
-Ti.include("../views/all.js");
+Ti.include("helpers.js");
+Ti.include("views.js");
 
-// Set View Elements
+// Set OS Flag
 Android = (Ti.Platform.osname != 'iphone');
-Ti.include(Android ? "../elements/android-elements.js" : "../elements/iphone-elements.js");
+
+// Define MS.Elements (OS Specific)
 MS.Helpers.Elements.setElements();

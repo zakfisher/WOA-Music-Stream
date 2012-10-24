@@ -18,11 +18,9 @@ MS.Views.TrackList = function() {
    var N  = MS.Helpers.Navigation;
    var T  = MS.Helpers.Tracks;
    var C  = MS.Cache;
+   var E  = MS.Elements.TrackList;
 
    /* ELEMENTS */
-   EH.setElements();
-   var E = MS.Elements.TrackList;
-
    C.npLabel        = E.npLabel;
    C.npTitleLabel   = E.npTitleLabel;
    C.npArtistLabel  = E.npArtistLabel;

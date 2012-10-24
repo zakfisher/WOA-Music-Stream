@@ -10,7 +10,7 @@
 
 MS.Helpers.Elements = {
    setElements : function() {
-      MS.Elements = Android ? MS.AndroidElements() : MS.iPhoneElements();
+      Ti.include("/elements/" + (Android ? "android" : "iphone") + ".js");
    },
    addElements : function(elemArray, window) {
       for (var i = 0; i < elemArray.length; i++) {

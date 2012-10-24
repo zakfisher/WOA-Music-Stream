@@ -15,11 +15,9 @@ MS.Views.Home = function() {
    var me = this;
    var EH = MS.Helpers.Elements;
    var N  = MS.Helpers.Navigation;
+   var E  = MS.Elements.Home;
 
    /* ELEMENTS */
-   EH.setElements();
-   var E = MS.Elements.Home;
-
    me.window = EH.window();
    me.elements = [
       E.msLogo,

@@ -1,14 +1,14 @@
 /**
- * iPhone Elements Class
+ * Android Elements Class
  * ------------------------------------------
- * Define View Elements for iOS
+ * Define View Elements for Android
  *
  * ------------------------------------------
  * by Zachary Fisher :: zfisher@zfidesign.com
  *
  */
 
-MS.iPhoneElements = function() {
+MS.Elements = new function() {
 
    var me = this;
    var EH = MS.Helpers.Elements;
@@ -31,10 +31,9 @@ MS.iPhoneElements = function() {
       npLabel          : EH.label('Now Playing', 8, 85, 'black', 12),
       npTitleLabel     : EH.label(trackPlaying ? TX.ellipsis(C.CurrentTrackData.title, 23) : '', 22, 85, 'black', 14, true),
       npArtistLabel    : EH.label(trackPlaying ? TX.ellipsis(C.CurrentTrackData.artist, 40) : '', 40, 85, 'black', 12),
-      playPauseIcon    : EH.icon(typeof C.CurrentTrack != 'undefined' ? (C.CurrentTrack.playing ? 'pause-icon.png' : 'play-icon.png') : 'play-icon.png', {top:447}),
+      playPauseIcon    : EH.icon(typeof C.CurrentTrackData != 'undefined' ? (C.CurrentTrack.playing ? 'pause-icon.png' : 'play-icon.png') : 'play-icon.png', {top:447}),
       listContainer    : EH.scrollView(103, Titanium.Platform.displayCaps.platformHeight - 104 - 45),
       playerControlsBG : EH.view('player-controls-bg.png', 320, 45, 435)
    };
 
-   return me;
 };
