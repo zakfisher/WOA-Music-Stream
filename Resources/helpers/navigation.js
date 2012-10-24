@@ -9,8 +9,8 @@
  */
 
 MS.Helpers.Navigation = {
-   showHomeScreenFirstTime : function() {
-      MS.Helpers.Transitions.openWindowRight(MS.Views.Home());
+   enterApp : function() {
+      setTimeout(function() { MS.Helpers.Transitions.openWindowRight(MS.Views.Home()); }, 3000);
    },
    showHomeScreen : function() {
       MS.Helpers.Transitions.openWindowLeft(MS.Views.Home());
