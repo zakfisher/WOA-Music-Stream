@@ -242,7 +242,6 @@ MS.Helpers.Tracks = {
       var loading = E.loading('', {right:5,height:20,top:5});
       MS.TrackList.add(loading);
       loading.show();
-      var i = 0;
       var int = setInterval(function() {
          if (!C.CurrentTrack.waiting) {
             MS.TrackList.remove(loading);
