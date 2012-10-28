@@ -121,7 +121,7 @@ MS.Helpers.Tracks = {
    },
    makeTrack : function(url) {
       var track = Titanium.Media.createAudioPlayer({url:url});
-      track.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
+      Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
       return track;
    },
    autoplayTrack : function() {
