@@ -35,9 +35,6 @@ Ti.include("/elements/" + (Android ? "android" : "iphone") + ".js");
 // Create Cached Elements
 MS.Helpers.Cache.cacheElements();
 
-// Set Media Session (for playback outside of app)
-Ti.Media.defaultaudioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
-
 // Define Views
 Ti.include("views.js");
 MS.Home = MS.Views.Home();

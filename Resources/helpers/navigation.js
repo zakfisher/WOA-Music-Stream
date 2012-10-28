@@ -16,10 +16,10 @@ MS.Helpers.Navigation = {
    },
    HomeToTrackList : function() {
       MS.Helpers.Cache.getListContainerTop();
-      MS.Helpers.Transitions.openWindow(MS.Home, MS.TrackList, 'right');
+      MS.Helpers.Transitions.openWindow(MS.Home, MS.TrackList, 'up');
    },
    HomeToAbout : function() {
-      MS.Helpers.Transitions.openWindow(MS.Home, MS.About, 'right');
+      MS.Helpers.Transitions.openWindow(MS.Home, MS.About, 'up');
    },
    TrackListToHome : function() {
       MS.Helpers.Cache.setListContainerTop();

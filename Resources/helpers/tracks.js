@@ -30,6 +30,8 @@ MS.Helpers.Tracks = {
 
          // Create List Item
          var item = E.view(bgImage, '100%', 60, (i * 60), 0);
+         item.index = i;
+         item.active = false;
          var labels = [
             E.label(TX.ellipsis(track.title, 40), '10%', '5%', labelColor, 13, true),
             E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
@@ -37,13 +39,11 @@ MS.Helpers.Tracks = {
          ];
          E.addElements(labels, item);
 
-         // Add Event Listeners
-         if (notPlaying) {
-            item.index = i;
-            item.active = false;
-            item.addEventListener('click', function(e) {
-               var target = (this.label != null) ? this.getParent() : this;
+         // Add Event Listener
+         item.addEventListener('click', function(e) {
+            var target = (this.label != null) ? this.getParent() : this;
 
+            if (!target.active) {
                var cacheAndPlay = function() {
 
                   // Deselect All Buttons (when selecting new track)
@@ -73,8 +73,8 @@ MS.Helpers.Tracks = {
 
                // No Tracks Selected or Playing
                else if (typeof C.CurrentTrackData == 'undefined') { cacheAndPlay(); }
-            });
-         }
+            }
+         });
          tracklistItems.push(item);
       }
 
@@ -120,7 +120,9 @@ MS.Helpers.Tracks = {
       else { T.renderListItems(C.TrackList); }
    },
    makeTrack : function(url) {
-      return Titanium.Media.createAudioPlayer({url:url});
+      var track = Titanium.Media.createAudioPlayer({url:url});
+      track.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
+      return track;
    },
    autoplayTrack : function() {
 
@@ -195,7 +197,10 @@ MS.Helpers.Tracks = {
       }
 
       // No Tracks Selected or Playing (default to first track)
-      else { tracks[0].fireEvent('click'); }
+      else {
+         tracks[0].fireEvent('click');
+         C.listContainer.scrollTo(0,0);
+      }
    },
    prevTrack : function() {
 
@@ -224,7 +229,10 @@ MS.Helpers.Tracks = {
       }
 
       // No Tracks Selected or Playing (default to first track)
-      else { tracks[0].fireEvent('click'); }
+      else {
+         tracks[0].fireEvent('click');
+         C.listContainer.scrollTo(0,0);
+      }
 
    },
    selectTrack : function() {
