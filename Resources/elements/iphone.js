@@ -30,7 +30,7 @@ MS.Elements = new function() {
       npArtistLabel    : EH.label('', 40, 85, 'black', 12),
       playPauseIcon    : EH.icon('play-icon.png', {top:447}),
       listContainer    : EH.scrollView(103, MS.Device.H - 104 - 45),
-      playerControlsBG : EH.view('player-controls-bg.png', 320, 45, 435)
+      playerControlsBG : EH.view('player-controls-bg.png', 320, 45, MS.Device.H - 45)
    };
 
 };

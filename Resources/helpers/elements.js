@@ -26,17 +26,18 @@ MS.Helpers.Elements = {
    },
    view : function(bgImg, width, height, top, left, zIndex) {
       var view = Ti.UI.createView({
-         backgroundImage : MS.Images + bgImg,
          width: width,
          height: height,
          top: top
       });
+      if (typeof bgImg != 'undefined') { view.backgroundImage = MS.Images + bgImg; }
       if (typeof left != 'undefined') { view.left = left; }
       if (typeof zIndex != 'undefined') { view.zIndex = zIndex; }
       return view;
    },
    scrollView : function(top, height) {
       return Ti.UI.createScrollView({
+         backgroundColor: 'white',
          contentWidth: 'auto',
          contentHeight: 'auto',
          showVerticalScrollIndicator: false,

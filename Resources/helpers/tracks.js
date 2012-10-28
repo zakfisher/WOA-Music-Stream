@@ -24,23 +24,24 @@ MS.Helpers.Tracks = {
          var track = trackList[i];
 
          // Select Track if Currently Playing
-         var inverse = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
-         var labelColor = inverse ? 'black' : '#eeeeee';
+         var notPlaying = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
+         var labelColor = notPlaying ? 'black' : 'white';
+         var bgImage = notPlaying ? 'track-unselected.png' : 'track-selected.png';
 
          // Create List Item
+         var item = E.view(bgImage, '100%', 60, (i * 60), 0);
          var labels = [
             E.label(TX.ellipsis(track.title, 33), '10%', '5%', labelColor, 13, true),
             E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
             E.label(track.duration, '60%', '5%', labelColor, 13)
          ];
-         var button = E.button((i * 60), labels, inverse, false);
-         for (var key in track) { button[key] = track[key]; }
+         E.addElements(labels, item);
 
          // Add Event Listeners
-         if (inverse) {
-            button.index = i;
-            for (var j = 0; j < labels.length; j++) { labels[j].index = button.index; }
-            button.addEventListener('click', function(e) {
+         if (notPlaying) {
+            item.index = i;
+            for (var j = 0; j < labels.length; j++) { labels[j].index = item.index; }
+            item.addEventListener('click', function(e) {
                var target = (this.label != null) ? this.getParent() : this;
 
                var cacheAndPlay = function() {
@@ -49,15 +50,15 @@ MS.Helpers.Tracks = {
                   var listItems = C.listContainer.getChildren();
                   for (var k = 0; k < listItems.length; k++) {
                      var b = listItems[k];
-                     b.backgroundImage = MS.Images + 'button-down.png';
+                     b.backgroundImage = MS.Images + 'track-unselected.png';
                      var ls = b.getChildren();
                      for (var l = 0; l < ls.length; l++) { ls[l].color = 'black'; }
                   }
 
                   // Select Current Button
-                  target.backgroundImage = MS.Images + 'button-up.png';
+                  target.backgroundImage = MS.Images + 'track-selected.png';
                   var lbls = target.getChildren();
-                  for (var m = 0; m < lbls.length; m++) { lbls[m].color = '#eeeeee'; }
+                  for (var m = 0; m < lbls.length; m++) { lbls[m].color = 'white'; }
 
                   // Cache and Play Track
                   CH.setCurrentTrack(C.TrackList[target.index]);
@@ -72,7 +73,7 @@ MS.Helpers.Tracks = {
                else if (typeof C.CurrentTrackData == 'undefined') { cacheAndPlay(); }
             });
          }
-         tracklistItems.push(button);
+         tracklistItems.push(item);
       }
 
       // Add Tracks to Track List Window
