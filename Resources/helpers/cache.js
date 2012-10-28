@@ -47,11 +47,9 @@ MS.Helpers.Cache = {
       C.TrackList = data;
    },
    setListContainerTop : function() {
-      var C = MS.Cache;
-      C.listContainerTop = C.listContainer.contentOffset.y;
+      MS.Cache.listContainerTop = C.listContainer.contentOffset.y;
    },
    getListContainerTop : function() {
-      var C = MS.Cache;
-      C.listContainer.setContentOffset({x:0,y:C.listContainerTop});
+      MS.Cache.listContainer.setContentOffset({x:0,y:C.listContainerTop});
    }
 };
