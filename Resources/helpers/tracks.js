@@ -40,7 +40,6 @@ MS.Helpers.Tracks = {
          // Add Event Listeners
          if (notPlaying) {
             item.index = i;
-            for (var j = 0; j < labels.length; j++) { labels[j].index = item.index; }
             item.addEventListener('click', function(e) {
                var target = (this.label != null) ? this.getParent() : this;
 

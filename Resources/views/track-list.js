@@ -25,7 +25,6 @@ MS.Views.TrackList = function() {
       E.npBG,
       E.homeIcon,
       E.searchIcon,
-      //E.listContainerBG,
       C.npLabel,
       C.npTitleLabel,
       C.npArtistLabel,
