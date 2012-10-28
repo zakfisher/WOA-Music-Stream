@@ -40,6 +40,7 @@ MS.Helpers.Tracks = {
          // Add Event Listeners
          if (notPlaying) {
             item.index = i;
+            item.active = false;
             item.addEventListener('click', function(e) {
                var target = (this.label != null) ? this.getParent() : this;
 
@@ -50,12 +51,14 @@ MS.Helpers.Tracks = {
                   for (var k = 0; k < listItems.length; k++) {
                      var b = listItems[k];
                      b.backgroundImage = MS.Images + 'track-unselected.png';
+                     b.active = false;
                      var ls = b.getChildren();
                      for (var l = 0; l < ls.length; l++) { ls[l].color = 'black'; }
                   }
 
                   // Select Current Button
                   target.backgroundImage = MS.Images + 'track-selected.png';
+                  target.active = true;
                   var lbls = target.getChildren();
                   for (var m = 0; m < lbls.length; m++) { lbls[m].color = 'white'; }
 
@@ -164,6 +167,65 @@ MS.Helpers.Tracks = {
          tracks[0].fireEvent('click');
          C.listContainer.scrollTo(0,0);
       }
+   },
+   nextTrack : function() {
+
+      var C = MS.Cache;
+
+      var tracks = C.listContainer.getChildren();
+
+      // A Track is Currently Selected
+      if (typeof C.CurrentTrackData != 'undefined') {
+
+         // Not Last Item
+         if (!tracks[tracks.length - 1].active) {
+            for (var i = 0; i < tracks.length; i++) {
+               if (tracks[i].active) {
+                  tracks[i + 1].fireEvent('click');
+                  C.listContainer.scrollTo(0,((i + 1) * 60));
+               }
+            }
+         }
+
+         // Play First Item
+         else {
+            tracks[0].fireEvent('click');
+            C.listContainer.scrollTo(0,0);
+         }
+      }
+
+      // No Tracks Selected or Playing (default to first track)
+      else { tracks[0].fireEvent('click'); }
+   },
+   prevTrack : function() {
+
+      var C = MS.Cache;
+
+      var tracks = C.listContainer.getChildren();
+
+      // A Track is Currently Selected
+      if (typeof C.CurrentTrackData != 'undefined') {
+
+         // Not First Item
+         if (!tracks[0].active) {
+            for (var i = 0; i < tracks.length; i++) {
+               if (tracks[i].active) {
+                  tracks[i - 1].fireEvent('click');
+                  C.listContainer.scrollTo(0,((i - 1) * 60));
+               }
+            }
+         }
+
+         // Play Last Item
+         else {
+            tracks[tracks.length - 1].fireEvent('click');
+            C.listContainer.scrollToBottom();
+         }
+      }
+
+      // No Tracks Selected or Playing (default to first track)
+      else { tracks[0].fireEvent('click'); }
+
    },
    selectTrack : function() {
 

@@ -12,6 +12,9 @@ MS.Elements = new function() {
 
    var me = this;
    var EH = MS.Helpers.Elements;
+   var listContainerHeight = MS.Device.H - 104 - 45;
+   var tracklistControlBGTop = MS.Device.H - 45;
+   var tracklistControlTop = MS.Device.H - 33;
 
    me.Home = {
       msLogo          : EH.image('music-stream-logo.png', '7%'),
@@ -25,11 +28,13 @@ MS.Elements = new function() {
       homeIcon         : EH.icon('home-icon.png', {top:77,left:'10%'}),
       searchIcon       : EH.icon('search-icon.png', {top:77,right:'10%'}),
       npLabel          : EH.label('Now Playing', 8, 85, 'black', 12),
-      npTitleLabel     : EH.label('', 22, 85, 'black', 14, true),
+      npTitleLabel     : EH.label('[select a track]', 22, 85, 'black', 14, true),
       npArtistLabel    : EH.label('', 40, 85, 'black', 12),
-      playPauseIcon    : EH.icon('play-icon.png', {top:447}),
-      listContainer    : EH.scrollView(103, MS.Device.H - 104 - 45),
-      playerControlsBG : EH.view('player-controls-bg.png', 320, 45, MS.Device.H - 45)
+      playPauseIcon    : EH.icon('play-icon.png', {top:tracklistControlTop}),
+      prevIcon         : EH.icon('prev-icon.png', {top:tracklistControlTop,left:'20%'}),
+      nextIcon         : EH.icon('next-icon.png', {top:tracklistControlTop,right:'20%'}),
+      listContainer    : EH.scrollView(103, listContainerHeight),
+      playerControlsBG : EH.view('player-controls-bg.png', 320, 45, tracklistControlBGTop)
    };
 
 };

@@ -30,6 +30,8 @@ MS.Views.TrackList = function() {
       C.npArtistLabel,
       C.listContainer,
       C.playPauseIcon,
+      E.prevIcon,
+      E.nextIcon,
       E.playerControlsBG
    ];
 
@@ -43,6 +45,8 @@ MS.Views.TrackList = function() {
    /* EVENT LISTENERS */
    E.homeIcon.addEventListener('click', N.TrackListToHome);
    C.playPauseIcon.addEventListener('click', T.playPauseTrack);
+   E.prevIcon.addEventListener('click', T.prevTrack);
+   E.nextIcon.addEventListener('click', T.nextTrack);
 
    return me.window;
 };
