@@ -19,6 +19,7 @@ MS.Helpers.Cache = {
       C.npArtistLabel = E.npArtistLabel;
       C.playPauseIcon = E.playPauseIcon;
       C.listContainer = E.listContainer;
+      C.listContainerTop = 0;
    },
    setCurrentTrack : function(data) {
 
@@ -44,5 +45,13 @@ MS.Helpers.Cache = {
       // If TrackList exists, delete & re-init
       if (typeof C.TrackList != 'undefined') { delete C.TrackList; }
       C.TrackList = data;
+   },
+   setListContainerTop : function() {
+      var C = MS.Cache;
+      C.listContainerTop = C.listContainer.contentOffset.y;
+   },
+   getListContainerTop : function() {
+      var C = MS.Cache;
+      setTimeout(function() { C.listContainer.setContentOffset({x:0,y:C.listContainerTop}); }, 100);
    }
 };

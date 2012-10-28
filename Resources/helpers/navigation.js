@@ -15,12 +15,14 @@ MS.Helpers.Navigation = {
       }, 3000);
    },
    HomeToTrackList : function() {
+      MS.Helpers.Cache.getListContainerTop();
       MS.Helpers.Transitions.openWindow(MS.Home, MS.TrackList, 'right');
    },
    HomeToAbout : function() {
       MS.Helpers.Transitions.openWindow(MS.Home, MS.About, 'right');
    },
    TrackListToHome : function() {
+      MS.Helpers.Cache.setListContainerTop();
       MS.Helpers.Transitions.openWindow(MS.TrackList, MS.Home, 'left');
    },
    AboutToHome : function() {
