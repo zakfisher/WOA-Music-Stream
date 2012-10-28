@@ -13,23 +13,36 @@ MS = {
    Cache    : {},
    Helpers  : {},
    Elements : {},
-   Views    : {}
+   Views    : {},
+   Device   : {
+      H : Ti.Platform.displayCaps.platformHeight,
+      W : Ti.Platform.displayCaps.platformWidth
+   }
 };
-
-// Include Helpers & Views
-Ti.include("helpers.js");
-Ti.include("views.js");
 
 // Set OS Flag
 Android = (Ti.Platform.osname != 'iphone');
 
-// Define MS.Elements (OS Specific)
-MS.Helpers.Elements.setElements();
+if (Android) { MS.Device.Density = Ti.Platform.displayCaps.logicalDensityFactor; }
+
+// Include Helpers
+Ti.include("helpers.js");
+
+// Define MS.Elements & MS.Images (OS Specific)
+MS.Images = '/images/' + Ti.Platform.osname + '/';
+Ti.include("/elements/" + (Android ? "android" : "iphone") + ".js");
+
+// Create Cached Elements
+MS.Helpers.Cache.cacheElements();
 
 // Set Media Session (for playback outside of app)
 Ti.Media.defaultaudioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
 
 // Define Views
+Ti.include("views.js");
 MS.Home = MS.Views.Home();
 MS.TrackList = MS.Views.TrackList();
 MS.About = MS.Views.About();
+
+
+console.log(MS.Device);

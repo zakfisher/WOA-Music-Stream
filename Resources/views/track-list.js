@@ -21,11 +21,6 @@ MS.Views.TrackList = function() {
    var E  = MS.Elements.TrackList;
 
    /* ELEMENTS */
-   C.npLabel        = E.npLabel;
-   C.npTitleLabel   = E.npTitleLabel;
-   C.npArtistLabel  = E.npArtistLabel;
-   C.playPauseIcon  = E.playPauseIcon;
-   C.listContainer  = E.listContainer;
    me.elements = [
       E.npBG,
       E.homeIcon,

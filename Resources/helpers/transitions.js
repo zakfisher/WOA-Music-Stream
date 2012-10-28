@@ -14,6 +14,6 @@ MS.Helpers.Transitions = {
       setTimeout(function() {
          newWindow.open(Android ? null : {transition:t});
          oldWindow.close();
-      }, 100);
+      }, 200);
    }
 };

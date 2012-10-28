@@ -10,10 +10,8 @@
 
 MS.Helpers.Navigation = {
    enterApp : function() {
-      var t = Android ? null : {transition: Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT};
       setTimeout(function() {
-         MS.Home.open(t);
-         MS.Home.windowOpen = true;
+         MS.Home.open(Android ? null : {transition: Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
       }, 3000);
    },
    HomeToTrackList : function() {

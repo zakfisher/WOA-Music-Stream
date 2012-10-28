@@ -9,6 +9,17 @@
  */
 
 MS.Helpers.Cache = {
+   cacheElements : function() {
+
+      var C = MS.Cache;
+      var E = MS.Elements.TrackList;
+
+      C.npLabel       = E.npLabel;
+      C.npTitleLabel  = E.npTitleLabel;
+      C.npArtistLabel = E.npArtistLabel;
+      C.playPauseIcon = E.playPauseIcon;
+      C.listContainer = E.listContainer;
+   },
    setCurrentTrack : function(data) {
 
       var C = MS.Cache;

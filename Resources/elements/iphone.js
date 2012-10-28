@@ -29,7 +29,7 @@ MS.Elements = new function() {
       npTitleLabel     : EH.label('', 22, 85, 'black', 14, true),
       npArtistLabel    : EH.label('', 40, 85, 'black', 12),
       playPauseIcon    : EH.icon('play-icon.png', {top:447}),
-      listContainer    : EH.scrollView(103, Titanium.Platform.displayCaps.platformHeight - 104 - 45),
+      listContainer    : EH.scrollView(103, MS.Device.H - 104 - 45),
       playerControlsBG : EH.view('player-controls-bg.png', 320, 45, 435)
    };
 

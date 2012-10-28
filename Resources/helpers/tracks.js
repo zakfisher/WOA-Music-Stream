@@ -49,20 +49,20 @@ MS.Helpers.Tracks = {
                   var listItems = C.listContainer.getChildren();
                   for (var k = 0; k < listItems.length; k++) {
                      var b = listItems[k];
-                     b.backgroundImage = '/images/button-down.png';
+                     b.backgroundImage = MS.Images + 'button-down.png';
                      var ls = b.getChildren();
                      for (var l = 0; l < ls.length; l++) { ls[l].color = 'black'; }
                   }
 
                   // Select Current Button
-                  target.backgroundImage = '/images/button-up.png';
+                  target.backgroundImage = MS.Images + 'button-up.png';
                   var lbls = target.getChildren();
                   for (var m = 0; m < lbls.length; m++) { lbls[m].color = '#eeeeee'; }
 
                   // Cache and Play Track
                   CH.setCurrentTrack(C.TrackList[target.index]);
                   T.selectTrack();
-                  C.playPauseIcon.image = '/images/pause-icon.png';
+                  C.playPauseIcon.image = MS.Images + 'pause-icon.png';
                };
 
                // A Track is Currently Selected
@@ -145,13 +145,13 @@ MS.Helpers.Tracks = {
 
          // Track is Playing
          if (C.CurrentTrack.playing) {
-            C.playPauseIcon.image = '/images/play-icon.png';
+            C.playPauseIcon.image = MS.Images + 'play-icon.png';
             T.pauseTrack();
          }
 
          // Track is Paused
          else {
-            C.playPauseIcon.image = '/images/pause-icon.png';
+            C.playPauseIcon.image = MS.Images + 'pause-icon.png';
             T.startTrack();
          }
       }

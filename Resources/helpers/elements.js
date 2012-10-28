@@ -9,9 +9,6 @@
  */
 
 MS.Helpers.Elements = {
-   setElements : function() {
-      Ti.include("/elements/" + (Android ? "android" : "iphone") + ".js");
-   },
    addElements : function(elemArray, parentObj) {
       for (var i = 0; i < elemArray.length; i++) {
          parentObj.add(elemArray[i]);
@@ -20,7 +17,7 @@ MS.Helpers.Elements = {
    window : function() {
       return Titanium.UI.createWindow({
          backgroundColor:'#fff',
-         backgroundImage: '/images/bg.png',
+         backgroundImage: MS.Images + 'bg.png',
          height: '100%',
          width: '100%',
          navBarHidden : true,
@@ -29,7 +26,7 @@ MS.Helpers.Elements = {
    },
    view : function(bgImg, width, height, top, left, zIndex) {
       var view = Ti.UI.createView({
-         backgroundImage : '/images/' + bgImg,
+         backgroundImage : MS.Images + bgImg,
          width: width,
          height: height,
          top: top
@@ -66,7 +63,7 @@ MS.Helpers.Elements = {
    },
    image : function(img, top) {
       return Ti.UI.createImageView({
-         image:'/images/' + img,
+         image: MS.Images + img,
          top: top
       });
    },
@@ -105,12 +102,12 @@ MS.Helpers.Elements = {
       // Add Touch Events
       if (events) {
          view.addEventListener('touchstart', function() {
-            view.backgroundImage = '/images/' + downImg;
+            view.backgroundImage = MS.Images + downImg;
             for (var i = 0; i < labels.length; i++) { labels[i].color = downColor; }
          });
 
          view.addEventListener('touchend', function() {
-            view.backgroundImage = '/images/' + upImg;
+            view.backgroundImage = MS.Images + upImg;
             for (var i = 0; i < labels.length; i++) { labels[i].color = upColor; }
          });
       }
