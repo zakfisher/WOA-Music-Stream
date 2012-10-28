@@ -31,7 +31,7 @@ MS.Helpers.Tracks = {
          // Create List Item
          var item = E.view(bgImage, '100%', 60, (i * 60), 0);
          var labels = [
-            E.label(TX.ellipsis(track.title, 33), '10%', '5%', labelColor, 13, true),
+            E.label(TX.ellipsis(track.title, 40), '10%', '5%', labelColor, 13, true),
             E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
             E.label(track.duration, '60%', '5%', labelColor, 13)
          ];
@@ -239,6 +239,7 @@ MS.Helpers.Tracks = {
       C.npTitleLabel.text = TX.ellipsis(C.CurrentTrackData.title, 23);
       C.npArtistLabel.text = TX.ellipsis(C.CurrentTrackData.artist, 40);
 
+      // Add Loading while Waiting for Track to Start
       var loading = E.loading('', {right:5,height:20,top:5});
       MS.TrackList.add(loading);
       loading.show();
