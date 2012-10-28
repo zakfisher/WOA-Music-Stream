@@ -23,9 +23,9 @@ MS.Helpers.Navigation = {
    },
    TrackListToHome : function() {
       MS.Helpers.Cache.setListContainerTop();
-      MS.Helpers.Transitions.openWindow(MS.TrackList, MS.Home, 'left');
+      MS.Helpers.Transitions.openWindow(MS.TrackList, MS.Home, 'down');
    },
    AboutToHome : function() {
-      MS.Helpers.Transitions.openWindow(MS.About, MS.Home, 'left');
+      MS.Helpers.Transitions.openWindow(MS.About, MS.Home, 'down');
    }
 };

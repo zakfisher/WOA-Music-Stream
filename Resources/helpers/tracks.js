@@ -162,6 +162,7 @@ MS.Helpers.Tracks = {
          // Default to First Track in List
          var tracks = C.listContainer.getChildren();
          tracks[0].fireEvent('click');
+         C.listContainer.scrollTo(0,0);
       }
    },
    selectTrack : function() {

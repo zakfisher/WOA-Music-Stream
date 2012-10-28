@@ -52,6 +52,6 @@ MS.Helpers.Cache = {
    },
    getListContainerTop : function() {
       var C = MS.Cache;
-      setTimeout(function() { C.listContainer.setContentOffset({x:0,y:C.listContainerTop}); }, 100);
+      C.listContainer.setContentOffset({x:0,y:C.listContainerTop});
    }
 };
