@@ -14,6 +14,12 @@ MS.Helpers.Elements = {
          parentObj.add(elemArray[i]);
       }
    },
+   addEvents : function(eventArray) {
+      for (var i = 0; i < eventArray.length; i++) {
+         var event = eventArray[i];
+         event[0].addEventListener(event[1], event[2]);
+      }
+   },
    window : function() {
       return Titanium.UI.createWindow({
          backgroundColor:'#fff',
@@ -47,8 +53,8 @@ MS.Helpers.Elements = {
          width: '100%'
       });
    },
-   loading : function(text) {
-      return Titanium.UI.createActivityIndicator({
+   loading : function(text, extras) {
+      var loading = Titanium.UI.createActivityIndicator({
          top: 0,
          height: 50,
          style: Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
@@ -61,6 +67,10 @@ MS.Helpers.Elements = {
          message: text,
          zIndex: 20
       });
+      if (typeof extras != 'undefined') {
+         for (var key in extras) { loading[key] = extras[key]; }
+      }
+      return loading;
    },
    image : function(img, top) {
       return Ti.UI.createImageView({

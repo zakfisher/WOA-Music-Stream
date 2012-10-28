@@ -30,8 +30,11 @@ MS.Views.Home = function() {
    EH.addElements(me.elements, me.window);
 
    /* EVENT LISTENERS */
-   E.tracklistButton.addEventListener('click', N.HomeToTrackList);
-   E.aboutButton.addEventListener('click', N.HomeToAbout);
+   me.events = [
+      [E.tracklistButton, 'click', N.HomeToTrackList],
+      [E.aboutButton,     'click', N.HomeToAbout]
+   ];
+   EH.addEvents(me.events);
 
    return me.window;
 };

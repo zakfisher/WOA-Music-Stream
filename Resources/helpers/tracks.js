@@ -232,10 +232,22 @@ MS.Helpers.Tracks = {
       var T  = MS.Helpers.Tracks;
       var C  = MS.Cache;
       var TX = MS.Helpers.Text;
+      var E  = MS.Helpers.Elements;
 
       // Play Current Track & Update Now Playing Labels
       T.autoplayTrack();
       C.npTitleLabel.text = TX.ellipsis(C.CurrentTrackData.title, 23);
       C.npArtistLabel.text = TX.ellipsis(C.CurrentTrackData.artist, 40);
+
+      var loading = E.loading('', {right:5,height:20,top:5});
+      MS.TrackList.add(loading);
+      loading.show();
+      var i = 0;
+      var int = setInterval(function() {
+         if (!C.CurrentTrack.waiting) {
+            MS.TrackList.remove(loading);
+            clearInterval(int);
+         }
+      }, 100);
    }
 };
