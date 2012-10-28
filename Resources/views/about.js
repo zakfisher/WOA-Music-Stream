@@ -13,6 +13,8 @@
 MS.Views.About = function() {
 
    var me = this;
+   var N  = MS.Helpers.Navigation;
+
    me.window = MS.Helpers.Elements.window();
 
    /* ELEMENTS */
@@ -20,7 +22,7 @@ MS.Views.About = function() {
    me.homeLabel = MS.Helpers.Elements.label('Home', '20%', '10%');
 
    /* EVENT LISTENERS */
-   me.homeLabel.addEventListener('click', MS.Helpers.Navigation.showHomeScreen);
+   me.homeLabel.addEventListener('click', N.AboutToHome);
 
    /* ADD ELEMENTS TO WINDOW */
    me.elements = [me.homeLabel, me.aboutLabel];

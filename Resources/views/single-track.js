@@ -33,10 +33,10 @@ MS.Views.SingleTrack = function() {
    E.addElements(me.elements, me.window);
 
    /* EVENT LISTENERS */
-   me.homeLabel.addEventListener('click', N.showHomeScreen);
-   me.trackListLabel.addEventListener('click', N.showTrackListScreen);
-   me.playTrackLabel.addEventListener('click', T.startTrack);
-   me.pauseTrackLabel.addEventListener('click', T.pauseTrack);
+//   me.homeLabel.addEventListener('click', N.showHomeScreen);
+//   me.trackListLabel.addEventListener('click', N.showTrackListScreen);
+//   me.playTrackLabel.addEventListener('click', T.startTrack);
+//   me.pauseTrackLabel.addEventListener('click', T.pauseTrack);
 
    /* AUTOPLAY TRACK */
    T.autoplayTrack();

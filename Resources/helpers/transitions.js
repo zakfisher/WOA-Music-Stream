@@ -9,13 +9,11 @@
  */
 
 MS.Helpers.Transitions = {
-   openWindowLeft : function(window) {
-      MS.Helpers.Elements.setElements();
-      setTimeout(function() { window.open(Android ? null : {transition: Titanium.UI.iPhone && Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT}); }, 100);
-   },
-   openWindowRight : function(window) {
-      MS.Helpers.Elements.setElements();
-      var settings = Android ? null : {transition: Titanium.UI.iPhone && Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT};
-      setTimeout(function() { window.open(settings); }, 100);
+   openWindow : function(oldWindow, newWindow, direction) {
+      var t = direction == 'left' ? Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT;
+      setTimeout(function() {
+         newWindow.open(Android ? null : {transition:t});
+         oldWindow.close();
+      }, 100);
    }
 };

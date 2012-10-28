@@ -12,9 +12,6 @@ MS.Elements = new function() {
 
    var me = this;
    var EH = MS.Helpers.Elements;
-   var C  = MS.Cache;
-   var TX = MS.Helpers.Text;
-   var trackExists = (typeof C.CurrentTrackData != 'undefined');
 
    me.Home = {
       msLogo          : EH.image('music-stream-logo.png', '7%'),
@@ -29,9 +26,9 @@ MS.Elements = new function() {
       searchIcon       : EH.icon('search-icon.png', {top:77,right:'10%'}),
       listContainerBG  : EH.view('list-container-bg.png', 289, 568, 0),
       npLabel          : EH.label('Now Playing', 8, 85, 'black', 12),
-      npTitleLabel     : EH.label(trackExists ? TX.ellipsis(C.CurrentTrackData.title, 23) : '', 22, 85, 'black', 14, true),
-      npArtistLabel    : EH.label(trackExists ? TX.ellipsis(C.CurrentTrackData.artist, 40) : '', 40, 85, 'black', 12),
-      playPauseIcon    : EH.icon(trackExists ? (C.CurrentTrack.playing ? 'pause-icon.png' : 'play-icon.png') : 'play-icon.png', {top:447}),
+      npTitleLabel     : EH.label('', 22, 85, 'black', 14, true),
+      npArtistLabel    : EH.label('', 40, 85, 'black', 12),
+      playPauseIcon    : EH.icon('play-icon.png', {top:447}),
       listContainer    : EH.scrollView(103, Titanium.Platform.displayCaps.platformHeight - 104 - 45),
       playerControlsBG : EH.view('player-controls-bg.png', 320, 45, 435)
    };

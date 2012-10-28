@@ -47,7 +47,7 @@ MS.Views.TrackList = function() {
    EH.addElements(me.elements, me.window);
 
    /* EVENT LISTENERS */
-   E.homeIcon.addEventListener('click', N.showHomeScreen);
+   E.homeIcon.addEventListener('click', N.TrackListToHome);
    C.playPauseIcon.addEventListener('click', T.playPauseTrack);
 
    return me.window;

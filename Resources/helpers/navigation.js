@@ -10,18 +10,22 @@
 
 MS.Helpers.Navigation = {
    enterApp : function() {
-      setTimeout(function() { MS.Helpers.Transitions.openWindowRight(MS.Views.Home()); }, 3000);
+      var t = Android ? null : {transition: Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT};
+      setTimeout(function() {
+         MS.Home.open(t);
+         MS.Home.windowOpen = true;
+      }, 3000);
    },
-   showHomeScreen : function() {
-      MS.Helpers.Transitions.openWindowLeft(MS.Views.Home());
+   HomeToTrackList : function() {
+      MS.Helpers.Transitions.openWindow(MS.Home, MS.TrackList, 'right');
    },
-   showAboutScreen : function() {
-      MS.Helpers.Transitions.openWindowRight(MS.Views.About());
+   HomeToAbout : function() {
+      MS.Helpers.Transitions.openWindow(MS.Home, MS.About, 'right');
    },
-   showTrackListScreen : function() {
-      MS.Helpers.Transitions.openWindowRight(MS.Views.TrackList());
+   TrackListToHome : function() {
+      MS.Helpers.Transitions.openWindow(MS.TrackList, MS.Home, 'left');
    },
-   showSingleTrackScreen : function() {
-      MS.Helpers.Transitions.openWindowRight(MS.Views.SingleTrack());
+   AboutToHome : function() {
+      MS.Helpers.Transitions.openWindow(MS.About, MS.Home, 'left');
    }
 };

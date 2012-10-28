@@ -26,5 +26,10 @@ Android = (Ti.Platform.osname != 'iphone');
 // Define MS.Elements (OS Specific)
 MS.Helpers.Elements.setElements();
 
-// Set BG Media Session (for playback outside of app)
+// Set Media Session (for playback outside of app)
 Ti.Media.defaultaudioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
+
+// Define Views
+MS.Home = MS.Views.Home();
+MS.TrackList = MS.Views.TrackList();
+MS.About = MS.Views.About();
