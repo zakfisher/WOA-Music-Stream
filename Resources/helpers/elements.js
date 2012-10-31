@@ -148,9 +148,11 @@ MS.Helpers.Elements = {
          top: top,
          value: value,
          width: 200,
-         height: 28
+         height: 28,
+         autocapitalization: false,
+         autocorrect: false,
+         zIndex: 3
       });
-      input.zIndex = 3;
       if (typeof left != 'undefined') { input.left = left; }
       return input;
    }

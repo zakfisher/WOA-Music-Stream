@@ -66,7 +66,7 @@ MS.Helpers.Tracks = {
                      for (var m = 0; m < lbls.length; m++) { lbls[m].color = 'white'; }
 
                      // Cache and Play Track
-                     CH.setCurrentTrack(C.TrackList[target.index]);
+                     CH.setCurrentTrack(trackList[target.index]);
                      T.selectTrack();
                      C.playPauseIcon.image = MS.Images + 'pause-icon.png';
                   };
