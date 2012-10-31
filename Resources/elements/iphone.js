@@ -26,7 +26,7 @@ MS.Elements = new function() {
    me.TrackList = {
       npBG             : EH.view('now-playing-bg.png', 320, 104, 0, 0, 2),
       homeIcon         : EH.icon('home-icon.png', {top:77,left:'10%'}),
-      searchIcon       : EH.icon('search-icon.png', {top:77,right:'10%'}),
+      searchIcon       : EH.icon('search-icon.png', {top:77,right:'11%'}),
       npLabel          : EH.label('Now Playing', 8, 85, 'black', 12),
       npTitleLabel     : EH.label('[select a track]', 22, 85, 'black', 14, true),
       npArtistLabel    : EH.label('', 40, 85, 'black', 12),
@@ -34,7 +34,8 @@ MS.Elements = new function() {
       prevIcon         : EH.icon('prev-icon.png', {top:tracklistControlTop,left:'20%'}),
       nextIcon         : EH.icon('next-icon.png', {top:tracklistControlTop,right:'20%'}),
       listContainer    : EH.scrollView(103, listContainerHeight),
-      playerControlsBG : EH.view('player-controls-bg.png', 320, 45, tracklistControlBGTop)
+      playerControlsBG : EH.view('player-controls-bg.png', 320, 45, tracklistControlBGTop),
+      searchField      : EH.textField('', 70)
    };
 
 };

@@ -18,69 +18,79 @@ MS.Helpers.Tracks = {
       var CH = MS.Helpers.Cache;
       var TX = MS.Helpers.Text;
 
-      // Create List Items (with embedded track data)
-      var tracklistItems = [];
-      for (var i in trackList) {
-         var track = trackList[i];
+      // Populate List Container with Tracks
+      if (trackList !== null) {
 
-         // Select Track if Currently Playing
-         var notPlaying = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
-         var labelColor = notPlaying ? 'black' : 'white';
-         var bgImage = notPlaying ? 'track-unselected.png' : 'track-selected.png';
+         // Create List Items (with embedded track data)
+         var tracklistItems = [];
+         for (var i in trackList) {
+            var track = trackList[i];
 
-         // Create List Item
-         var item = E.view(bgImage, '100%', 60, (i * 60), 0);
-         item.index = i;
-         item.active = false;
-         var labels = [
-            E.label(TX.ellipsis(track.title, 40), '10%', '5%', labelColor, 13, true),
-            E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
-            E.label(track.duration, '60%', '5%', labelColor, 13)
-         ];
-         E.addElements(labels, item);
+            // Select Track if Currently Playing
+            var notPlaying = !(typeof C.CurrentTrackData != 'undefined' && track.id == C.CurrentTrackData.id);
+            var labelColor = notPlaying ? 'black' : 'white';
+            var bgImage = notPlaying ? 'track-unselected.png' : 'track-selected.png';
 
-         // Add Event Listener
-         item.addEventListener('click', function(e) {
-            var target = (this.label != null) ? this.getParent() : this;
+            // Create List Item
+            var item = E.view(bgImage, '100%', 60, (i * 60), 0);
+            item.index = i;
+            item.active = false;
+            var labels = [
+               E.label(TX.ellipsis(track.title, 40), '10%', '5%', labelColor, 13, true),
+               E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
+               E.label(track.duration, '60%', '5%', labelColor, 13)
+            ];
+            E.addElements(labels, item);
 
-            if (!target.active) {
-               var cacheAndPlay = function() {
+            // Add Event Listener
+            item.addEventListener('click', function(e) {
+               var target = (this.label != null) ? this.getParent() : this;
 
-                  // Deselect All Buttons (when selecting new track)
-                  var listItems = C.listContainer.getChildren();
-                  for (var k = 0; k < listItems.length; k++) {
-                     var b = listItems[k];
-                     b.backgroundImage = MS.Images + 'track-unselected.png';
-                     b.active = false;
-                     var ls = b.getChildren();
-                     for (var l = 0; l < ls.length; l++) { ls[l].color = 'black'; }
-                  }
+               if (!target.active) {
+                  var cacheAndPlay = function() {
 
-                  // Select Current Button
-                  target.backgroundImage = MS.Images + 'track-selected.png';
-                  target.active = true;
-                  var lbls = target.getChildren();
-                  for (var m = 0; m < lbls.length; m++) { lbls[m].color = 'white'; }
+                     // Deselect All Buttons (when selecting new track)
+                     var listItems = C.listContainer.getChildren();
+                     for (var k = 0; k < listItems.length; k++) {
+                        var b = listItems[k];
+                        b.backgroundImage = MS.Images + 'track-unselected.png';
+                        b.active = false;
+                        var ls = b.getChildren();
+                        for (var l = 0; l < ls.length; l++) { ls[l].color = 'black'; }
+                     }
 
-                  // Cache and Play Track
-                  CH.setCurrentTrack(C.TrackList[target.index]);
-                  T.selectTrack();
-                  C.playPauseIcon.image = MS.Images + 'pause-icon.png';
-               };
+                     // Select Current Button
+                     target.backgroundImage = MS.Images + 'track-selected.png';
+                     target.active = true;
+                     var lbls = target.getChildren();
+                     for (var m = 0; m < lbls.length; m++) { lbls[m].color = 'white'; }
 
-               // A Track is Currently Selected
-               if (typeof C.CurrentTrackData != 'undefined' && target.id != C.CurrentTrackData.id) { cacheAndPlay(); }
+                     // Cache and Play Track
+                     CH.setCurrentTrack(C.TrackList[target.index]);
+                     T.selectTrack();
+                     C.playPauseIcon.image = MS.Images + 'pause-icon.png';
+                  };
 
-               // No Tracks Selected or Playing
-               else if (typeof C.CurrentTrackData == 'undefined') { cacheAndPlay(); }
-            }
-         });
-         tracklistItems.push(item);
+                  // A Track is Currently Selected
+                  if (typeof C.CurrentTrackData != 'undefined' && target.id != C.CurrentTrackData.id) { cacheAndPlay(); }
+
+                  // No Tracks Selected or Playing
+                  else if (typeof C.CurrentTrackData == 'undefined') { cacheAndPlay(); }
+               }
+            });
+            tracklistItems.push(item);
+         }
+
+         // Add Tracks to Track List Window
+         C.listContainer.contentHeight = tracklistItems.length * 60;
+         E.addElements(tracklistItems, C.listContainer);
       }
 
-      // Add Tracks to Track List Window
-      C.listContainer.contentHeight = tracklistItems.length * 60;
-      E.addElements(tracklistItems, C.listContainer);
+      // No Tracks to Show (empty List Container & reset)
+      else {
+         var listItems = C.listContainer.getChildren();
+         E.removeElements(listItems, C.listContainer);
+      }
    },
    buildTrackList : function(refresh) {
 
@@ -257,5 +267,45 @@ MS.Helpers.Tracks = {
             clearInterval(int);
          }
       }, 100);
+   },
+   toggleSearchField : function() {
+
+      var C = MS.Cache;
+      var V = MS.TrackList;
+      var T = MS.Helpers.Tracks;
+
+      // Show Search Field
+      if (!C.searchIcon.active) {
+         V.add(C.searchField);
+         C.searchIcon.active = true;
+         C.searchField.focus();
+         T.renderListItems(null);
+      }
+
+      // Hide Search Field & Reset Track List
+      else {
+         V.remove(C.searchField);
+         C.searchIcon.active = false;
+         T.buildTrackList(null);
+      }
+   },
+   executeSearch : function() {
+
+      var C = MS.Cache;
+      var T = MS.Helpers.Tracks;
+
+      var searchVal = C.searchField.value.toLowerCase();
+      var results = [];
+
+      for (var i = 0; i < C.TrackList.length; i++) {
+         var track = C.TrackList[i];
+         var artist = track.artist.toLowerCase();
+         var title = track.title.toLowerCase();
+
+         if (artist.indexOf(searchVal) != -1 || title.indexOf(searchVal) != -1) { results.push(track); }
+      }
+
+      T.renderListItems(null);
+      T.renderListItems(results);
    }
 };

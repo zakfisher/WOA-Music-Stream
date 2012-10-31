@@ -14,6 +14,8 @@ MS.Helpers.Cache = {
       var C = MS.Cache;
       var E = MS.Elements.TrackList;
 
+      C.searchIcon    = E.searchIcon;
+      C.searchField   = E.searchField;
       C.npLabel       = E.npLabel;
       C.npTitleLabel  = E.npTitleLabel;
       C.npArtistLabel = E.npArtistLabel;

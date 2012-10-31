@@ -24,7 +24,7 @@ MS.Views.TrackList = function() {
    me.elements = [
       E.npBG,
       E.homeIcon,
-      E.searchIcon,
+      C.searchIcon,
       C.npLabel,
       C.npTitleLabel,
       C.npArtistLabel,
@@ -44,10 +44,13 @@ MS.Views.TrackList = function() {
 
    /* EVENT LISTENERS */
    me.events = [
-      [E.homeIcon,      'click', N.TrackListToHome],
-      [C.playPauseIcon, 'click', T.playPauseTrack],
-      [E.prevIcon,      'click', T.prevTrack],
-      [E.nextIcon,      'click', T.nextTrack]
+      [E.homeIcon,      'click',  N.TrackListToHome],
+      [C.searchIcon,    'click',  T.toggleSearchField],
+      [C.searchField,   'change', T.executeSearch],
+      [C.playPauseIcon, 'click',  T.playPauseTrack],
+      [E.prevIcon,      'click',  T.prevTrack],
+      [E.nextIcon,      'click',  T.nextTrack],
+      [E.nextIcon,      'click',  T.nextTrack]
    ];
    EH.addEvents(me.events);
 

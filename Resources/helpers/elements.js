@@ -14,6 +14,11 @@ MS.Helpers.Elements = {
          parentObj.add(elemArray[i]);
       }
    },
+   removeElements : function(elemArray, parentObj) {
+      for (var i = 0; i < elemArray.length; i++) {
+         parentObj.remove(elemArray[i]);
+      }
+   },
    addEvents : function(eventArray) {
       for (var i = 0; i < eventArray.length; i++) {
          var event = eventArray[i];
@@ -43,7 +48,6 @@ MS.Helpers.Elements = {
    },
    scrollView : function(top, height) {
       return Ti.UI.createScrollView({
-         backgroundColor: 'white',
          contentWidth: 'auto',
          contentHeight: 'auto',
          showVerticalScrollIndicator: false,
@@ -131,9 +135,23 @@ MS.Helpers.Elements = {
 
       var icon = E.image(img, position.top);
       icon.zIndex = 3;
+      icon.active = false;
       if (typeof position.left != 'undefined') { icon.left = position.left; }
       if (typeof position.right != 'undefined') { icon.right = position.right; }
 
       return icon;
+   },
+   textField : function(value, top, left) {
+      var input = Ti.UI.createTextField({
+         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+         color: 'black',
+         top: top,
+         value: value,
+         width: 200,
+         height: 28
+      });
+      input.zIndex = 3;
+      if (typeof left != 'undefined') { input.left = left; }
+      return input;
    }
 };
