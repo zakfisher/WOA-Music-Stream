@@ -278,6 +278,7 @@ MS.Helpers.Tracks = {
       if (!C.searchIcon.active) {
          V.add(C.searchField);
          C.searchIcon.active = true;
+         C.searchField.value = '';
          C.searchField.focus();
          T.renderListItems(null);
       }
