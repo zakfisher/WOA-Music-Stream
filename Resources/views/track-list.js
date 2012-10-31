@@ -46,6 +46,7 @@ MS.Views.TrackList = function() {
    me.events = [
       [E.homeIcon,      'click',  N.TrackListToHome],
       [C.searchIcon,    'click',  T.toggleSearchField],
+      //[C.refreshIcon,    'click',  T.refreshTrackList],
       [C.searchField,   'change', T.executeSearch],
       [C.playPauseIcon, 'click',  T.playPauseTrack],
       [E.prevIcon,      'click',  T.prevTrack],

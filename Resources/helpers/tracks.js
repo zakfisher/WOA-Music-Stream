@@ -10,6 +10,9 @@
  */
 
 MS.Helpers.Tracks = {
+   refreshTrackList : function() {
+      MS.Helpers.Tracks.buildTrackList(true);
+   },
    renderListItems : function(trackList) {
 
       var E  = MS.Helpers.Elements;
@@ -19,9 +22,9 @@ MS.Helpers.Tracks = {
       var TX = MS.Helpers.Text;
 
       // Populate List Container with Tracks
-      if (trackList !== null) {
+      if (trackList !== null && trackList.length > 0) {
 
-         // Create List Items (with embedded track data)
+         // Create List Items
          var tracklistItems = [];
          for (var i in trackList) {
             var track = trackList[i];
@@ -34,7 +37,7 @@ MS.Helpers.Tracks = {
             // Create List Item
             var item = E.view(bgImage, '100%', 60, (i * 60), 0);
             item.index = i;
-            item.active = false;
+            item.active = !notPlaying;
             var labels = [
                E.label(TX.ellipsis(track.title, 40), '10%', '5%', labelColor, 13, true),
                E.label(TX.ellipsis(track.artist, 33), '35%', '5%', labelColor, 13),
@@ -112,6 +115,9 @@ MS.Helpers.Tracks = {
       // Issue HTTP Request, and Fetch New Data
       if (refresh) {
 
+         var listItems = C.listContainer.getChildren();
+         E.removeElements(listItems, C.listContainer);
+
          // Add "Loading" to Window
          var loading = E.loading('Loading');
          C.listContainer.add(loading);
@@ -131,7 +137,6 @@ MS.Helpers.Tracks = {
    },
    makeTrack : function(url) {
       var track = Titanium.Media.createAudioPlayer({url:url});
-      Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
       return track;
    },
    autoplayTrack : function() {
@@ -278,6 +283,7 @@ MS.Helpers.Tracks = {
       if (!C.searchIcon.active) {
          V.add(C.searchField);
          C.searchIcon.active = true;
+         C.searchIcon.image = MS.Images + 'cancel-search-icon.png';
          C.searchField.value = '';
          C.searchField.focus();
          T.renderListItems(null);
@@ -287,6 +293,8 @@ MS.Helpers.Tracks = {
       else {
          V.remove(C.searchField);
          C.searchIcon.active = false;
+         C.searchIcon.image = MS.Images + 'search-icon.png';
+         T.renderListItems(null);
          T.buildTrackList(null);
       }
    },

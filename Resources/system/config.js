@@ -22,8 +22,10 @@ MS = {
 
 // Set OS Flag
 Android = (Ti.Platform.osname != 'iphone');
-
 if (Android) { MS.Device.Density = Ti.Platform.displayCaps.logicalDensityFactor; }
+
+// Set Audio Session Mode
+Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
 
 // Include Helpers
 Ti.include("helpers.js");

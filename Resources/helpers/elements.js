@@ -93,9 +93,9 @@ MS.Helpers.Elements = {
          },
          textAlign: 'left',
          width: 'auto',
-         top: top,
-         left: left
+         top: top
       });
+      if (typeof left != 'undefined') { label.left = left; }
       label.label = true;
       label.zIndex = 3;
       return label;
