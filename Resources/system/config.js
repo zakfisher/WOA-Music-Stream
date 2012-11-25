@@ -31,8 +31,8 @@ Ti.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
 Ti.include("helpers.js");
 
 // Define MS.Elements & MS.Images (OS Specific)
-MS.Images = '/images/' + Ti.Platform.osname + '/';
-Ti.include("/elements/" + (Android ? "android" : "iphone") + ".js");
+MS.Images = '/images/' + Ti.Platform.osname + '/' + (Android ? MS.Device.Density + '/' : '');
+Ti.include("/elements/" + Ti.Platform.osname + ".js");
 
 // Create Cached Elements
 MS.Helpers.Cache.cacheElements();
@@ -42,6 +42,3 @@ Ti.include("views.js");
 MS.Home = MS.Views.Home();
 MS.TrackList = MS.Views.TrackList();
 MS.About = MS.Views.About();
-
-
-console.log(MS.Device);

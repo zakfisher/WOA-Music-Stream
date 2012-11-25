@@ -129,7 +129,7 @@ MS.Helpers.Tracks = {
             C.listContainer.remove(loading);
             T.renderListItems(tracks);
          };
-         MS.Helpers.Network.createRequest('http://www.worldofanarchy.com/dev/music/all_tracks', compileTrackList);
+         MS.Helpers.Network.createRequest('http://www.worldofanarchy.com/music/all_tracks', compileTrackList);
       }
 
       // Use Cached Data
